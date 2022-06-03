@@ -3,9 +3,9 @@ public class RunTimeEXceptionCatchMain2 {
 
 	public static void maic(String[] args) /*throws RuntimeException*/ {
 		// ArrayIndexOutOfBoundsException
+		int[] intArray = null;
 		try {
 			System.out.println("stmt1");
-			int[] intArray = null;
 			intArray = new int[10];
 			/*
 			 1. 예외상황발생하면  ArrayIndexOutOfBoundsException 객체생성한후 
@@ -18,7 +18,13 @@ public class RunTimeEXceptionCatchMain2 {
 			System.out.println("stmt3");
 
 		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("---catch start---");
+			String msg=e.getMessage();
+			System.out.println("IndexOutOfBoundsException=>"+msg+"번 index 없음");
+			intArray[9]=9999;
+			System.out.println(intArray[9]);
+			System.out.println("---catch end---");
 
 		}
 		System.out.println("main return");
