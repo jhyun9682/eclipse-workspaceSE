@@ -55,16 +55,14 @@ public class AccountServiceReturn {
 		this.accounts = newAccounts;
 	}
 
-	/*
-	 * 1.은행계좌들 총계좌수 반환메써드
-	 */
+	//1.은행계좌들 총계좌수 반환메써드
+	
 	public int getTotAccountNumber() {
 		return 0;
 	}
 
-	/*
-	 * 2.은행계좌들 전체출력메쏘드 정의
-	 */
+	// 2.은행계좌들 전체출력메쏘드 정의
+	 
 	public void print() {
 		Account.headerPrint();
 		for (int i = 0; i < accounts.length; i++) {
@@ -72,64 +70,50 @@ public class AccountServiceReturn {
 		}
 	}
 
-	/*
-	 * 3.은행계좌들 총잔고를 반환하는 메쏘드
-	 */
+	// 3.은행계좌들 총잔고를 반환하는 메쏘드
+	
 	public int getAccountTotBalance() {
 		return 0;
 	}
 
-	/*
-	 * 4.계좌번호를 인자로받아서 계좌객체주소 한개반환
-	 */
+	// 4.계좌번호를 인자로받아서 계좌객체주소 한개반환
+	 
 	public Account findByNo(int no) {
 		return null;
 	}
 
-	/*
-	 * 5.계좌잔고 인자로받아서 잔고이상인 계좌배열객체 참조변수반환
-	 */
+	// 5.계좌잔고 인자로받아서 잔고이상인 계좌배열객체 참조변수반환
+	 
 	public Account[] findByBalance(int balance) {
-		/*
-		 * A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
-		 */
-		/*
-		 * B. Account객체배열생성 
-		 * 	- findAccounts=new Account[3];
-		 */
-		/*
-		 * C. 만족하는Account객체들 Account배열에담기
-		 */
+		//A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
+		
+		 //B. Account객체배열생성 	- findAccounts=new Account[3];
+		 
+		 // C. 만족하는Account객체들 Account배열에담기
+		 
 		return null;
 	}
 
-	/*
-	 * 6.계좌이율인자로받아서 인자이상인 계좌들배열객체 참조변수반환
-	 */
+	//6.계좌이율인자로받아서 인자이상인 계좌들배열객체 참조변수반환
+	 
 	public Account[] findByIyul(double iyul) {
 		return null;
 	}
 
-	/*
-	 * 7.계좌주이름 인자로받아서 이름과일치하는계좌들배열객체 참조변수반환
-	 */
+	//7.계좌주이름 인자로받아서 이름과일치하는계좌들배열객체 참조변수반환
+	 
 	public Account[] findByName(String name) {
-		/*
-		 * A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
-		 */
-		/*
-		 * B. Account객체배열생성 
-		 * 	- findAccounts=new Account[3];
-		 */
-		/*
-		 * C. 만족하는Account객체들 Account배열에담기
-		 */
+		// A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
+		
+		// B. Account객체배열생성	- findAccounts=new Account[3];
+		// C. 만족하는Account객체들 Account배열에담기
+		
 		return null;
 	}
 
-	/*
-	 * 8.계좌번호,입금할돈 인자로 받아서 입금한후 입금계좌 참조변수반환
-	 */
+	
+	  //8.계좌번호,입금할돈 인자로 받아서 입금한후 입금계좌 참조변수반환
+	 
 	public Account ipGum(int no, int m) {
 		/*
 		 * 1.계좌번호로 계좌찾기 
@@ -141,9 +125,9 @@ public class AccountServiceReturn {
 
 	}
 
-	/*
-	 * 9.계좌번호,출금할돈 인자로 받아서 출금
-	 */
+	
+	// 9.계좌번호,출금할돈 인자로 받아서 출금
+	
 	public Account chulGum(int no, int m) {
 
 		return null;
@@ -157,21 +141,21 @@ public class AccountServiceReturn {
 
 	}
 
-	/*
-	 * 12.계좌객체를 인자로 받아서 이름,잔고,이율 수정(update)[OPTION]
-	 */
+	
+	  //12.계좌객체를 인자로 받아서 이름,잔고,이율 수정(update)[OPTION]
+	 
 	public void updateAccount(Account updateAccount) {
 
 	}
 
-	/*
-	 * 13.번호,이름,잔고,이율 인자로받아서 계좌객체수정(update)[OPTION]
-	 */
+	
+	 //13.번호,이름,잔고,이율 인자로받아서 계좌객체수정(update)[OPTION]
+	 
 	public void updateAccount(int no, String owner, int balance, double iyul) {
 
 	}
 
-	/*
+	/* 과제아님
 	 * 14.계좌번호 인자로받아서 삭제해줘[OPTION] 
 	 * 	A. 배열에서 Account객체삭제 
 	 * 	B. 배열사이즈감소
