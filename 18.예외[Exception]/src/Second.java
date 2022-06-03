@@ -1,8 +1,9 @@
 import java.io.IOException;
+import java.net.Socket;
 
 public class Second {
 
-	public void method2() throws IOException{
+	public void method2() throws IOException, NullPointerException{
 		System.out.println("\t\t Second.method2()실행");
 		/*case1(RuntimeException)*/
 		/*
@@ -11,10 +12,10 @@ public class Second {
 		 * 3.실행중인쓰레드는 실행을멈추고 호출한곳(반환방향)으로 이동한다. 
 		 * 4.JVM은 던져진예외객체의 메세지를 출력한후 쓰레드종료(shut down)
 		
-		 */
 		String str=null;
 		int length=str.length();
 		System.out.println("length:"+length);
+		 */
 		/*case2(RuntimeException)*/
 		/*
 		 * 1.내가예외객체생성
@@ -30,12 +31,15 @@ public class Second {
 		}
 		*/
 		/*case3(비RuntimeException)*/
+		/*
 		IOException ex = new IOException("비RuntimeException");
 		boolean b=true;
 		if(b) {
-			throw ex; //throws IOException 전>Unhandled exception type IOException
+			throw ex; 
 		}
-
+*/
+		Socket soket=new Socket("www.naver.com",80);
+		System.out.println(soket);
 		System.out.println("\t\t Second.method2()반환");
 		return;
 	}
