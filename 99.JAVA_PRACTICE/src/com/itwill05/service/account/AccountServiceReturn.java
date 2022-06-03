@@ -58,8 +58,13 @@ public class AccountServiceReturn {
 	//1.은행계좌들 총계좌수 반환메써드
 	
 	public int getTotAccountNumber() {
-		return 0;
-	}
+		
+			int length = accounts.length;
+			 
+			return length;
+		}
+	
+	
 
 	// 2.은행계좌들 전체출력메쏘드 정의
 	 
@@ -73,30 +78,48 @@ public class AccountServiceReturn {
 	// 3.은행계좌들 총잔고를 반환하는 메쏘드
 	
 	public int getAccountTotBalance() {
-		return 0;
+		int totBalance = 0;
+		for (int i = 0; i < accounts.length; i++) {
+		totBalance += accounts[i].getBalance();
+	}
+		return totBalance;
 	}
 
 	// 4.계좌번호를 인자로받아서 계좌객체주소 한개반환
 	 
 	public Account findByNo(int no) {
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getNo() == no) {
+				accounts[i].print();
+			
+			}
+		}
 		return null;
+	
 	}
 
 	// 5.계좌잔고 인자로받아서 잔고이상인 계좌배열객체 참조변수반환
 	 
 	public Account[] findByBalance(int balance) {
-		//A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
-		
-		 //B. Account객체배열생성 	- findAccounts=new Account[3];
-		 
+		//A. 만족하는 객체의갯수구하기 - 예를들어 3개라면		
+		 //B. Account객체배열생성 	- findAccounts=new Account[3];		 
 		 // C. 만족하는Account객체들 Account배열에담기
-		 
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getBalance() >= balance) {
+				accounts[i].print();
+			}
+		}
 		return null;
 	}
 
 	//6.계좌이율인자로받아서 인자이상인 계좌들배열객체 참조변수반환
 	 
 	public Account[] findByIyul(double iyul) {
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getIyul() >= iyul) {
+				accounts[i].print();
+			}
+		}
 		return null;
 	}
 
@@ -104,10 +127,13 @@ public class AccountServiceReturn {
 	 
 	public Account[] findByName(String name) {
 		// A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
-		
 		// B. Account객체배열생성	- findAccounts=new Account[3];
 		// C. 만족하는Account객체들 Account배열에담기
-		
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getOwner().equals(name)) {
+				accounts[i].print();
+				}
+		}
 		return null;
 	}
 
@@ -120,7 +146,13 @@ public class AccountServiceReturn {
 		 * 2.입금
 		 * 3.입금계좌 참조변수반환
 		 */
-
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getNo() == no) {
+				accounts[i].deposit(m);
+				accounts[i].print();
+				break;
+			}
+		}
 		return null;
 
 	}
@@ -129,7 +161,13 @@ public class AccountServiceReturn {
 	// 9.계좌번호,출금할돈 인자로 받아서 출금
 	
 	public Account chulGum(int no, int m) {
-
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i].getNo() == no) {
+				accounts[i].withDraw(m);
+				accounts[i].print();
+				break;
+			}
+		}
 		return null;
 	}
 
@@ -138,7 +176,9 @@ public class AccountServiceReturn {
 	 *             order    --> 1:오름차순,2:내림차순
 	 */
 	public void sort(int standard, int order) {
+		
 
+				
 	}
 
 	
