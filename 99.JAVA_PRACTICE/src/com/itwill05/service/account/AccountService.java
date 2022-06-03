@@ -147,7 +147,7 @@ public class AccountService {
 		for (int i = 0; i < accounts.length; i++) {
 			if (accounts[i].getNo() == no) {
 				accounts[i].deposit(m);
-				accounts[i].print();
+
 				break;
 			}
 		}
@@ -160,12 +160,11 @@ public class AccountService {
 		for (int i = 0; i < accounts.length; i++) {
 			if (accounts[i].getNo() == no) {
 				accounts[i].withDraw(m);
-				accounts[i].print();
+
 				break;
 			}
 		}
 	}
-	
 
 	/*
 	<< 과제 아님 >>
@@ -177,7 +176,7 @@ public class AccountService {
 	 10.계좌를 잔고순으로 오름차순정렬
 	 */
 	public void sortByBalanceAscending() {
-		
+
 		// 8회
 		for (int i = 0; i < accounts.length - 1; i++) {
 			for (int j = 0; j < accounts.length - 1; j++) {
@@ -188,38 +187,30 @@ public class AccountService {
 					Account tempAccount = accounts[j];
 					accounts[j] = accounts[j + 1];
 					accounts[j + 1] = tempAccount;
-					
+
 				}
 			}
 		}
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i].print();
-		}
 		
+
 	}
 
 	/*
 	 11.계좌를 잔고순으로 내림차순정렬
 	 */
 	public void sortByBalanceDescending() {
-		
+
 		for (int i = 0; i < accounts.length - 1; i++) {
 			for (int j = 0; j < accounts.length - 1; j++) {
-				int balance1 = accounts[j].getBalance();
-				int balance2 = accounts[j + 1].getBalance();
-				if (balance1 < balance2) {
+				if (accounts[j].getBalance() < accounts[j + 1].getBalance()) {
 					// 주소값 교환
 					Account tempAccount = accounts[j];
 					accounts[j] = accounts[j + 1];
 					accounts[j + 1] = tempAccount;
-					
+
 				}
 			}
 		}
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i].print();
-		}
-		
 	}
 
 	/*

@@ -34,17 +34,23 @@ public class AccountServiceMain {
 		
 		
 		System.out.println("8.AccountService객체야 계좌번호,입금할돈 인자로줄께 입금해줘");
+		accountService.findByNoPrint(5555);
 		accountService.ipGum(5555, 2555);
+		accountService.findByNoPrint(5555);
 		
 		System.out.println("9.AccountService객체야 계좌번호,출금할돈 인자로줄께 출금해줘");
+		accountService.findByNoPrint(6666);
 		accountService.chulGum(6666, 3555);
+		accountService.findByNoPrint(6666);
 		
 		
 		System.out.println("10.AccountService객체야 계좌를 잔고순으로 오름차순정렬해줘");
 		accountService.sortByBalanceAscending();
+		accountService.print();
 		
 		System.out.println("11.AccountService객체야 계좌를 잔고순으로 내림차순정렬해줘");
 		accountService.sortByBalanceDescending();
+		accountService.print();
 
 		/*<< 과제 아님 >>
 		 * accountService.sort(AccountService.SORT_BY_NO, AccountService.SORT_ASC);
