@@ -1,7 +1,7 @@
 
 public class RunTimeEXceptionCatchMain2 {
 
-	public static void maic(String[] args) /*throws RuntimeException*/ {
+	public static void main(String[] args) /*throws RuntimeException*/ {
 		// ArrayIndexOutOfBoundsException
 		int[] intArray = null;
 		try {

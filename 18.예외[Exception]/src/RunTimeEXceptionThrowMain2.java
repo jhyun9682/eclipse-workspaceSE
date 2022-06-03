@@ -1,7 +1,7 @@
 
 public class RunTimeEXceptionThrowMain2 {
 
-	public static void maic(String[] args) /*throws RuntimeException*/ {
+	public static void main(String[] args) /*throws RuntimeException*/ {
 		//ArrayIndexOutOfBoundsException
 		System.out.println("stmt1");
 		int[] intArray = null;
