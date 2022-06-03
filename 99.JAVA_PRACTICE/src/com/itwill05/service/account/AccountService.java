@@ -1,5 +1,7 @@
 package com.itwill05.service.account;
 
+import java.util.Iterator;
+
 /*
  * Account객체전체에관련된 업무를 실행할클래스
  * 		1.계좌객체들(Account[]) 을멤버변수로가진다.
@@ -45,6 +47,13 @@ public class AccountService {
 		 *   - 기존배열보다큰배열생성
 		 *   - 기존데이타 옮김
 		 */
+		Account[] tempAccount= new Account[accounts.length+1];
+		for (int i = 0; i < accounts.length; i++) {
+			tempAccount[i]=accounts[i];
+			
+		}
+		tempAccount[tempAccount.length-1]=newAccount;
+		this.accounts=tempAccount;
 	}
 
 	/*
@@ -52,11 +61,9 @@ public class AccountService {
 	 * 0.계좌데이타를 인자로받아서 Account[]에추가[OPTION]
 	*/
 	public void addAccount(int no, String owner, int balance, double iyul) {
-		/*
-		 * 1.배열크기증가
-		 *   - 기존배열보다큰배열생성
-		 *   - 기존데이타 옮김
-		 */
+		Account newAcount=new Account(no,owner,balance,iyul);
+		this.addAccount(newAcount);
+		
 	}
 
 	/*

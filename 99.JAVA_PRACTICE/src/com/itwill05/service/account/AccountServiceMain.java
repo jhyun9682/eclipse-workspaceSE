@@ -6,9 +6,14 @@ public class AccountServiceMain {
 		AccountService accountService=new AccountService();
 
 		/*<< 과제 아님 >>
-		System.out.println("0.AccountService객체야 Account 객체줄께추가해줘(배열사이즈증가)[OPTION]");
-		System.out.println("0.AccountService객체야 번호,이름,잔고,이율줄께 계좌객체추가해줘(배열사이즈증가)[OPTION]");
 		*/
+		System.out.println("0.AccountService객체야 Account 객체줄께추가해줘(배열사이즈증가)[OPTION]");
+		accountService.addAccount(new Account(1234,"NEW",56000,0.3));
+		accountService.addAccount(2839, "KAN", 96000, 0.9);
+		accountService.print();
+		
+		System.out.println("0.AccountService객체야 번호,이름,잔고,이율줄께 계좌객체추가해줘(배열사이즈증가)[OPTION]");
+		
 		System.out.println("1.AccountService객체야 은행계좌들 총계좌수출력해줘");
 		accountService.totAccountNumberPrint();
 		
