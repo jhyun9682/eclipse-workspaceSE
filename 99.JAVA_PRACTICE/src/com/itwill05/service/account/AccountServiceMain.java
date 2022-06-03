@@ -59,8 +59,15 @@ public class AccountServiceMain {
 
 		/*<< 과제 아님 >>
 		 * accountService.sort(AccountService.SORT_BY_NO, AccountService.SORT_ASC);
-		System.out.println("12.AccountService객체야 계좌객체줄께 (이름,잔고,이율) 수정(update)해줘)[OPTION]");
-		System.out.println("13.AccountService객체야 번호,이름,잔고,이율 계좌 데이타줄께 이름,잔고,이율 수정(update)해줘)[OPTION]");
 		*/
+		System.out.println("12.AccountService객체야 계좌객체줄께 (이름,잔고,이율) 수정(update)해줘)[OPTION]");
+		Account updateAccount=new Account(3333,"삼삼",30000,3.0);
+		accountService.updateAccount(updateAccount);
+		accountService.findByNoPrint(3333);
+
+		System.out.println("13.AccountService객체야 번호,이름,잔고,이율 계좌 데이타줄께 이름,잔고,이율 수정(update)해줘)[OPTION]");
+		accountService.updateAccount(7777, "칠칠", 70000, 7.7);
+		
+		accountService.print();
 	}
 }
