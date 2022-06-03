@@ -1,5 +1,5 @@
 
-public class RuntimeEXceptionThrowMain2 {
+public class RunTimeEXceptionThrowMain2 {
 
 	public static void maic(String[] args) /*throws RuntimeException*/ {
 		//ArrayIndexOutOfBoundsException

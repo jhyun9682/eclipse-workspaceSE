@@ -1,5 +1,5 @@
 
-public class RuntimeEXceptionThrowMain3 {
+public class RunTimeEXceptionThrowMain3 {
 
 	public static void main(String[] args) /*throws RuntimeException*/{
 		// ClassCastException
