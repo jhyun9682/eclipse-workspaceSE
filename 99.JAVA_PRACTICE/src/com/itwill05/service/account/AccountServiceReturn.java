@@ -88,13 +88,15 @@ public class AccountServiceReturn {
 	// 4.계좌번호를 인자로받아서 계좌객체주소 한개반환
 	 
 	public Account findByNo(int no) {
+		Account findAccount=null;
 		for (int i = 0; i < accounts.length; i++) {
 			if (accounts[i].getNo() == no) {
-				accounts[i].print();
+				findAccount=accounts[i];
+				break;
 			
 			}
 		}
-		return null;
+		return findAccount;
 	
 	}
 
@@ -127,14 +129,25 @@ public class AccountServiceReturn {
 	 
 	public Account[] findByName(String name) {
 		// A. 만족하는 객체의갯수구하기 - 예를들어 3개라면
-		// B. Account객체배열생성	- findAccounts=new Account[3];
-		// C. 만족하는Account객체들 Account배열에담기
-		for (int i = 0; i < accounts.length; i++) {
-			if (accounts[i].getOwner().equals(name)) {
-				accounts[i].print();
-				}
+		int count=0;
+		for(int i=0; i<accounts.length;i++) {
+			if(accounts[i].getOwner().equals(name)) {
+				count++;
+			}
 		}
-		return null;
+		// B. Account객체배열생성	- findAccounts=new Account[3];
+		Account[] findAccounts=new Account[count];
+		// C. 만족하는Account객체들 Account배열에담기
+		int index=0;
+		for (int i = 0; i < accounts.length; i++) {
+			if(accounts[i].getOwner().equals(name)) {
+				findAccounts[index]=accounts[i];
+				index++;
+			}
+			
+		}
+		
+		return findAccounts;
 	}
 
 	
@@ -146,14 +159,10 @@ public class AccountServiceReturn {
 		 * 2.입금
 		 * 3.입금계좌 참조변수반환
 		 */
-		for (int i = 0; i < accounts.length; i++) {
-			if (accounts[i].getNo() == no) {
-				accounts[i].deposit(m);
-				accounts[i].print();
-				break;
-			}
-		}
-		return null;
+		Account findAccount= this.findByNo(no);
+		findAccount.deposit(m);
+		
+		return findAccount;
 
 	}
 
@@ -161,14 +170,10 @@ public class AccountServiceReturn {
 	// 9.계좌번호,출금할돈 인자로 받아서 출금
 	
 	public Account chulGum(int no, int m) {
-		for (int i = 0; i < accounts.length; i++) {
-			if (accounts[i].getNo() == no) {
-				accounts[i].withDraw(m);
-				accounts[i].print();
-				break;
-			}
-		}
-		return null;
+		Account findAccount=this.findByNo(no);
+		findAccount.withDraw(m);
+		
+		return findAccount;
 	}
 
 	/*
@@ -185,6 +190,10 @@ public class AccountServiceReturn {
 	  //12.계좌객체를 인자로 받아서 이름,잔고,이율 수정(update)[OPTION]
 	 
 	public void updateAccount(Account updateAccount) {
+		Account findAccount= this.findByNo(updateAccount.getNo());
+		findAccount.setOwner(updateAccount.getOwner());
+		findAccount.setIyul(updateAccount.getIyul());
+		findAccount.setBalance(updateAccount.getBalance());
 
 	}
 
@@ -192,6 +201,8 @@ public class AccountServiceReturn {
 	 //13.번호,이름,잔고,이율 인자로받아서 계좌객체수정(update)[OPTION]
 	 
 	public void updateAccount(int no, String owner, int balance, double iyul) {
+		Account updateAccount=new Account(no, owner, balance, iyul);
+		this.updateAccount(updateAccount);
 
 	}
 
@@ -202,7 +213,7 @@ public class AccountServiceReturn {
 	 *  C. 삭제한계좌객체반환
 	 *  
 	 */
-	public Account deleteByNo(int no) {
+	public Account deleteByNo(int no) { //Quiz
 
 		return null;
 	}
