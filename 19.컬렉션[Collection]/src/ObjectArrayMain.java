@@ -2,6 +2,7 @@
 public class ObjectArrayMain {
 
 	public static void main(String[] args) {
+		System.out.println("---Account->Object 형변환---");
 		Object o1=new Account(1111,"BING",3300,0.5);
 		Object o2=new Account(2222,"KING",2300,0.1);
 		Object o3=new Account(3333,"KING",5600,0.2);
@@ -19,6 +20,14 @@ public class ObjectArrayMain {
 			Account tempAccount= (Account)objectTypeArray[i];
 			tempAccount.print();
 		}
+		
+		System.out.println("---Car->Object 형변환---");
+		Object[] objectTypeArray2 =new Object[5];
+		objectTypeArray2[0]=new Car("2343",1);
+		objectTypeArray2[1]=new Car("4542",2);
+		objectTypeArray2[2]=new Car("3882",3);
+		objectTypeArray2[3]=new Car("0892",4);
+		objectTypeArray2[4]=new Car("7711",5);
 
 	}
 
