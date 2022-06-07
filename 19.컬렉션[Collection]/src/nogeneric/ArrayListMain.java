@@ -37,6 +37,7 @@ public class ArrayListMain {
 		getAccount.print();
 		System.out.println("**********5.remove[index]*******");
 		Account removeAccount = (Account) accountList.remove(1);
+		removeAccount.print();
 		System.out.println("#size:" + accountList.size());
 		System.out.println(accountList);
 		System.out.println("%%%%%%업무실행%%%%%%%");
@@ -49,34 +50,43 @@ public class ArrayListMain {
 		}
 		System.out.println("******2.계좌번호 3333번 한개 찾기*****");
 		for (int i = 0; i < accountList.size(); i++) {
-			Account tempAccount=(Account)accountList.get(i);
-			if(tempAccount.getNo()==3333) {
+			Account tempAccount = (Account) accountList.get(i);
+			if (tempAccount.getNo() == 3333) {
 				tempAccount.print();
 				break;
 			}
-			
+
 		}
 		System.out.println("******3.계좌주이름 KING인 계좌 여러개 찾기*******");
 		for (int i = 0; i < accountList.size(); i++) {
-			Account tempAccount=(Account)accountList.get(i);
-			if(tempAccount.getOwner().equals("KING")) {
+			Account tempAccount = (Account) accountList.get(i);
+			if (tempAccount.getOwner().equals("KING")) {
 				tempAccount.print();
 			}
-			
-			
+
 		}
 		System.out.println("******4.계좌번호 4444번 한개 삭제*******");
 		for (int i = 0; i < accountList.size(); i++) {
-			Account tempAccount=(Account)accountList.get(i);
-			if(tempAccount.getNo()==4444) {
-				System.out.println(">>remove전 size:"+accountList.size());
-				Account removeAcc= (Account)accountList.remove(i);
+			Account tempAccount = (Account) accountList.get(i);
+			if (tempAccount.getNo() == 4444) {
+				System.out.println(">>remove전 size:" + accountList.size());
+				Account removeAcc = (Account) accountList.remove(i);
 				removeAcc.print();
-				System.out.println(">>remove후 size:"+accountList.size());
+				System.out.println(">>remove후 size:" + accountList.size());
 				break;
 			}
-			
+
 		}
+		System.out.println("******5.이름 KING 계좌 여러개 삭제*****");
+		for (int i = 0; i < accountList.size(); i++) {
+			Account tempAccount = (Account) accountList.get(i);
+			if (tempAccount.getOwner().equals("KING")) {
+				Account removeAcc = (Account) accountList.remove(i);
+				removeAcc.print();
+			}
+
+		}
+
 		System.out.println("*******1.계좌 전체 출력******");
 		Account.headerPrint();
 		for (int i = 0; i < accountList.size(); i++) {
