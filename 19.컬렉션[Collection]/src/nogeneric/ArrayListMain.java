@@ -83,6 +83,7 @@ public class ArrayListMain {
 			if (tempAccount.getOwner().equals("KING")) {
 				Account removeAcc = (Account) accountList.remove(i);
 				removeAcc.print();
+				//??
 			}
 
 		}

@@ -29,6 +29,28 @@ public class HashMapMain {
 		removeCar.print();
 		System.out.println("# map size:"+carMap.size());
 		System.out.println(carMap);
+		System.out.println("#########차량 전체출력[iteration]#######");
+		System.out.println("%%%%%%%%%%%업무실행%%%%%%%%%%");
+		System.out.println("1.차량전체출력???");
+		System.out.println("2.입차");
+		Car newCar=new Car("3453",22);
+		carMap.put(newCar.getNo(), newCar);
+		System.out.println("# map size:"+carMap.size());
+		System.out.println(carMap);
+		System.out.println("3.차량번호 3453번 차량정보출력");
+		Car findCar= (Car)carMap.get("3453");
+		findCar.print();
+		System.out.println("4.출차 4444번 차량 20시 출차");
+		Car outCar=(Car) carMap.get("4444");
+		outCar.setOutTime(20);
+		outCar.calculateFee();
+		outCar.print();
+		carMap.remove("4444");
+		System.out.println("# map size:"+carMap.size());
+		System.out.println(carMap);
+		
+		
+		
 		
 		
 		
