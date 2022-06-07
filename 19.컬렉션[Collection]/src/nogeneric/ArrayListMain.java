@@ -17,7 +17,7 @@ public class ArrayListMain {
 		System.out.println("**********1.add[맨 마지막 index에 객체저장]*******");
 		accountList.add(acc1);
 		accountList.add(acc2);
-		accountList.add(acc2);
+		accountList.add(acc3);
 		System.out.println("#size:" + accountList.size());
 		System.out.println(accountList);
 		accountList.add(acc4);
@@ -55,6 +55,34 @@ public class ArrayListMain {
 				break;
 			}
 			
+		}
+		System.out.println("******3.계좌주이름 KING인 계좌 여러개 찾기*******");
+		for (int i = 0; i < accountList.size(); i++) {
+			Account tempAccount=(Account)accountList.get(i);
+			if(tempAccount.getOwner().equals("KING")) {
+				tempAccount.print();
+			}
+			
+			
+		}
+		System.out.println("******4.계좌번호 4444번 한개 삭제*******");
+		for (int i = 0; i < accountList.size(); i++) {
+			Account tempAccount=(Account)accountList.get(i);
+			if(tempAccount.getNo()==4444) {
+				System.out.println(">>remove전 size:"+accountList.size());
+				Account removeAcc= (Account)accountList.remove(i);
+				removeAcc.print();
+				System.out.println(">>remove후 size:"+accountList.size());
+				break;
+			}
+			
+		}
+		System.out.println("*******1.계좌 전체 출력******");
+		Account.headerPrint();
+		for (int i = 0; i < accountList.size(); i++) {
+			Account tempAccount = (Account) accountList.get(i);
+			tempAccount.print();
+
 		}
 
 	}
