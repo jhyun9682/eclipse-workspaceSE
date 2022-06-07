@@ -28,6 +28,12 @@ public class ObjectArrayMain {
 		objectTypeArray2[2]=new Car("3882",3);
 		objectTypeArray2[3]=new Car("0892",4);
 		objectTypeArray2[4]=new Car("7711",5);
+		
+		for (int i = 0; i < objectTypeArray2.length; i++) {
+			Car tempCar= (Car)objectTypeArray2[i];
+			tempCar.print();
+			
+		}
 
 	}
 
