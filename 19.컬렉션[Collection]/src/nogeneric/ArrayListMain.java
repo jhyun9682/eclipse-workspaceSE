@@ -77,7 +77,7 @@ public class ArrayListMain {
 			}
 
 		}
-		System.out.println("******5.이름 KING 계좌 여러개 삭제*****");
+		System.out.println("******5.이름 KING 계좌 여러개 삭제[Quiz]*****");
 		for (int i = 0; i < accountList.size(); i++) {
 			Account tempAccount = (Account) accountList.get(i);
 			if (tempAccount.getOwner().equals("KING")) {
