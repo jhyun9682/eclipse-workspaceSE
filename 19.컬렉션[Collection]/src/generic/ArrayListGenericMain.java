@@ -57,11 +57,23 @@ public class ArrayListGenericMain {
 			}
 
 		}
-		System.out.println("********4.계좌번호 4444번 1개 삭제***************");
+		System.out.println("********4.계좌번호 4444번 계좌 1개 삭제***************");
 		for (Account account : accountList) {
 			if (account.getNo() == 4444) {
-				accountList.remove(account);
+				boolean isRemove = accountList.remove(account);
+				if (isRemove) {
+					account.print();
+				}
 				break;
+			}
+
+		}
+		System.out.println("********5.계좌주이름 KIM 계좌 여러개 삭제***************");
+		for (int i = 0; i < accountList.size(); i++) {
+			if (accountList.get(i).getOwner().equals("KIM")) {
+				accountList.remove(i).print();
+				i--;
+
 			}
 
 		}
