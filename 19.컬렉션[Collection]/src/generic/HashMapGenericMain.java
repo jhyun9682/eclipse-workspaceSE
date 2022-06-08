@@ -58,6 +58,8 @@ public class HashMapGenericMain {
 		System.out.println("4.입차시간 15시 이후 차량 여러대찾기");
 		
 		System.out.println("5.2389차량 24시출차");
+		System.out.println("# map size:"+carMap.size());
+		System.out.println(carMap);
 		Car outCar=carMap.remove("2389");
 		outCar.setOutTime(24);
 		outCar.calculateFee();
