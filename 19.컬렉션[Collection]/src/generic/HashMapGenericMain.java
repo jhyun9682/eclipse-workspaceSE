@@ -1,6 +1,8 @@
 package generic;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 import nogeneric.Car;
 
@@ -42,6 +44,18 @@ public class HashMapGenericMain {
 		System.out.println("# map size:"+carMap.size());
 		System.out.println(carMap);
 		System.out.println("##########iteration반복[전체출력]###############");
+		/*<<Map Iteration>>
+		 * 1.키들의 Set객체를 얻는다
+		 * 2.키 Set객체를 사용해서 Iterator객체를 얻는다.
+		 */
+		Set<String> keySet=carMap.keySet();
+		Iterator<String> keyIterator=keySet.iterator();
+		while(keyIterator.hasNext()) {
+			
+			String key=keyIterator.next();
+			Car tempCar= carMap.get(key);
+			tempCar.print();
+		}
 		
 		System.out.println("%%%%%%%%%%%업무실행%%%%%%%%%%%%%%%%%");
 		
