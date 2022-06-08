@@ -62,6 +62,8 @@ public class HashMapGenericMain {
 		outCar.setOutTime(24);
 		outCar.calculateFee();
 		outCar.print();
+		System.out.println("# map size:"+carMap.size());
+		System.out.println(carMap);
 		
 
 	}
