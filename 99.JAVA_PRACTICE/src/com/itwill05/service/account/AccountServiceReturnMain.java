@@ -31,11 +31,11 @@ public class AccountServiceReturnMain {
 		findAccount.print();
 		}
 		System.out.println("5.AccountServiceReturn객체야 계좌잔고를 인자로줄께 잔고이상인 계좌객체배열 참조변수반환해줘");
-		accountServiceReturn.findByBalance(85000);
-
+		//모름
+		
 		System.out.println("6.AccountServiceReturn객체야 계좌이율(5.0)을 인자로줄께 이율이상인 계좌객체배열 참조변수 반환해줘");
-		accountServiceReturn.findByIyul(5.0);
-
+		//모름
+		
 		System.out.println("7.AccountServiceReturn객체야 계좌주이름(AIM)을 인자로줄께 계좌객체배열 참조변수 반환해줘");
 		Account[] accounts = accountServiceReturn.findByName("AIM");
 		
@@ -54,9 +54,11 @@ public class AccountServiceReturnMain {
 		정렬방법(order)    --> 1:오름차순,2:내림차순
 		 */
 		System.out.println("10.AccountServiceReturn객체야 계좌를 잔고순으로 오름차순정렬해줘");
+		//모름
 		accountServiceReturn.sort(3, 1);
 
 		System.out.println("11.AccountServiceReturn객체야 계좌를 잔고순으로 내림차순정렬해줘");
+		//모름
 		accountServiceReturn.sort(3, 2);
 
 		System.out.println("12.AccountServiceReturn야 계좌객체줄께 이름,잔고,이율 수정(update)해줘");

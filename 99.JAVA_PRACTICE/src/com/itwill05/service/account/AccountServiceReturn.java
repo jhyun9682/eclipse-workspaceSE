@@ -100,26 +100,36 @@ public class AccountServiceReturn {
 	
 	}
 
-	// 5.계좌잔고 인자로받아서 잔고이상인 계좌배열객체 참조변수반환
+	// 5.계좌잔고 인자로받아서 잔고이상인 계좌배열객체 참조변수반환??
 	 
-	public Account[] findByBalance(int balance) {
-		//A. 만족하는 객체의갯수구하기 - 예를들어 3개라면		
-		 //B. Account객체배열생성 	- findAccounts=new Account[3];		 
+	public Account[] findByBalance(int balance) { //??
+		//A. 만족하는 객체의갯수구하기 - 예를들어 3개라면	
+		
+		
+		 //B. Account객체배열생성 	- findAccounts=new Account[3];	
+		
 		 // C. 만족하는Account객체들 Account배열에담기
+		
 		for (int i = 0; i < accounts.length; i++) {
-			if (accounts[i].getBalance() >= balance) {
-				accounts[i].print();
+			if (accounts[i].getBalance() > balance) {
+				if (accounts[i].getBalance() >= balance) {
+					accounts[i].print();
+				}
+				
 			}
 		}
 		return null;
 	}
 
-	//6.계좌이율인자로받아서 인자이상인 계좌들배열객체 참조변수반환
-	 
+	//6.계좌이율인자로받아서 인자이상인 계좌들배열객체 참조변수반환??
+	
 	public Account[] findByIyul(double iyul) {
 		for (int i = 0; i < accounts.length; i++) {
-			if (accounts[i].getIyul() >= iyul) {
-				accounts[i].print();
+			if (accounts[i].getIyul() > iyul) {
+				if (accounts[i].getIyul() >= iyul) {
+					accounts[i].print();
+				}
+				
 			}
 		}
 		return null;
@@ -180,7 +190,7 @@ public class AccountServiceReturn {
 	 * 10,11 정렬  standard --> 1:번호,2:이름,3:잔고,4:이율 
 	 *             order    --> 1:오름차순,2:내림차순
 	 */
-	public void sort(int standard, int order) {
+	public void sort(int standard, int order) { //모름
 		
 
 				
@@ -213,7 +223,7 @@ public class AccountServiceReturn {
 	 *  C. 삭제한계좌객체반환
 	 *  
 	 */
-	public Account deleteByNo(int no) { //Quiz
+	public Account deleteByNo(int no) { //Quiz _모름
 
 		return null;
 	}
