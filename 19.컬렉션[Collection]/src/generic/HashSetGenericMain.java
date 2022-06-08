@@ -34,6 +34,10 @@ public class HashSetGenericMain {
 		System.out.println("# set size:"+accountSet.size());
 		System.out.println(accountSet);	
 		System.out.println("##############iteration반복[전체출력]#############");
+		/*<<Set Iteration>>
+		 * 1.Set객체를 사용해서 Iterator객체를 얻는다.
+		 * 
+		 */
 		Iterator<Account> accountIterator= accountSet.iterator();
 		
 		while(accountIterator.hasNext()) {
