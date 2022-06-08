@@ -32,11 +32,57 @@ public class WrapperClassMain {
 		Integer wi2=12135;
 		Double wd2=3.14159;
 		Boolean wb2=true;
-		
+		//Auto UnBoxing [Wrapper객체->기본형]
 		char c2=wc2;
 		int i2=wi2;
 		double de=wd2;
 		boolean b2=wb2;
+		
+		System.out.println("*************Auto Boxing***************");
+		int a=89;
+		int b=45;
+		int c=78;
+		int d=90;
+		int e=99;
+		
+		Integer ia=a;
+		Integer ib=b;
+		Integer ic=c;
+		Integer id=d;
+		Integer ie=e;
+		
+		System.out.println("**************자동형변환******************");
+		Object oa=ia;
+		Object ob=ib;
+		Object oc=ic;
+		Object od=id;
+		Object oe=ie;
+		
+		System.out.println("*************Auto Boxing,자동형변환********");
+		Object ooa=89;
+		Object oob=45;
+		Object ooc=78;
+		Object ood=90;
+		Object ooe=99;
+		System.out.println("*************Object[]***********");
+		Object[] scoreArray=new Object[5];
+		scoreArray[0]=89;
+		scoreArray[1]=45;
+		scoreArray[2]=78;
+		scoreArray[3]=90;
+		scoreArray[4]=99;
+		
+		for (int i = 0; i < scoreArray.length; i++) {
+			/*
+			Integer tempScore=(Integer)scoreArray[i];
+			int score=tempScore.intValue();
+			System.out.println(score);
+			*/
+			int score=(Integer)scoreArray[i];
+			System.out.println(score+" ");
+			
+		}
+		System.out.println();
 		
 
 	}
