@@ -77,6 +77,11 @@ public class ArrayListGenericMain {
 			}
 
 		}
+		System.out.println("********계좌전체출력*****");
+		for (Account account : accountList) {
+			account.print();
+			
+		}
 
 	}
 
