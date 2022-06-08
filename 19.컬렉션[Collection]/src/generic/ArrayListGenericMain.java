@@ -1,6 +1,7 @@
 package generic;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import nogeneric.Account;
 
@@ -30,6 +31,14 @@ public class ArrayListGenericMain {
 
 		Account getAccount = accountList.get(0);
 		getAccount.print();
+		System.out.println("##############iteration반복[전체출력]#############");
+		Iterator<Account> accountIterator=accountList.iterator();
+		while(accountIterator.hasNext()) {
+			accountIterator.next().print();
+			
+		}
+
+		
 		System.out.println("%%%%%%%업무실행%%%%%%");
 
 		System.out.println("********1.계좌전체출력*****");

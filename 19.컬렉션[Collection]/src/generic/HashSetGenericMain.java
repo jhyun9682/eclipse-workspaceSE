@@ -1,7 +1,7 @@
 package generic;
 
 import java.util.HashSet;
-
+import java.util.Iterator;
 
 import nogeneric.Account;
 
@@ -34,7 +34,13 @@ public class HashSetGenericMain {
 		System.out.println("# set size:"+accountSet.size());
 		System.out.println(accountSet);	
 		System.out.println("##############iteration반복[전체출력]#############");
+		Iterator<Account> accountIterator= accountSet.iterator();
 		
+		while(accountIterator.hasNext()) {
+			Account tempAccount= accountIterator.next();
+			tempAccount.print();
+			
+		}
 		
 
 	}
