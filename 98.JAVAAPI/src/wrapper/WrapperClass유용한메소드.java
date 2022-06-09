@@ -50,6 +50,23 @@ public class WrapperClass유용한메소드 {
 		
 		String strs="Hello Java!@##$@#$@#%_+_01234 김경호 제임스";
 		
+		for (int i = 0; i < strs.length(); i++) {
+			char tempChar=strs.charAt(i);
+			int type=Character.getType(tempChar);
+			if(type==Character.UPPERCASE_LETTER) {//대문자
+				System.out.println("UPPERCASE_LETTER:"+tempChar);
+				
+			}
+			if(type==Character.LOWERCASE_LETTER) {//소문자
+				System.out.println("LOWERCASE_LETTER:"+tempChar);
+			}
+			if(type==Character.DECIMAL_DIGIT_NUMBER) {//숫자
+				System.out.println("DECIMAL_DIGIT_NUMBER:"+tempChar);
+			}
+			if(type==Character.SPACE_SEPARATOR) {//공백
+				System.out.println("SPACE_SEPARATOR:"+tempChar);
+			}
+		}
 		
 	}
 
