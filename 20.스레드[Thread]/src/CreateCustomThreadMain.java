@@ -16,9 +16,10 @@ public class CreateCustomThreadMain {
 		System.out.println("3.main thread CreateCustomThread객체.start()메소드호출");
 		cct.start();
 
-		while(true) {
+		//while(true) {
 		System.out.println("4.main thread");
-		}
+		//}
+		return;
 	}
 
 }
