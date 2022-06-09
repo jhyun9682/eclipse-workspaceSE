@@ -50,7 +50,7 @@ public class WrapperClass유용한메소드 {
 		
 		String strs="Hello Java!@##$@#$@#%_+_01234 김경호 제임스";
 		
-		for
+		
 	}
 
 }
