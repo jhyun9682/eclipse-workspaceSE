@@ -7,10 +7,20 @@
 	4. Thread 객체를통해서 Thread를 시작시킨다.
  */
 
-public class CreateCustomThread extends Thread{
+public class CreateCustomThread extends Thread {
+
+	/*
+	 * public void run()
+	 * CreateCustomThread객체를 통해서 생성된 스레드가 호출하는 메소드
+	 */
+
 	@Override
 	public void run() {
-		
+		while (true) {
+			System.out.println("가." + Thread.currentThread().getName() + "스레드 실행");
+			System.out.println("나." + Thread.currentThread().getName() + "스레드 실행후 반환");
+		}
+
 	}
 
 }

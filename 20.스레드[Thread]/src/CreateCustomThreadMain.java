@@ -10,7 +10,15 @@ public class CreateCustomThreadMain {
 			3. Thread 객체를 생성한다.
 			4. Thread 객체를통해서 Thread를 시작시킨다.
 		 */
+		System.out.println("1.main thread start");
+		CreateCustomThread cct = new CreateCustomThread();
+		cct.setName("사용자정의 스레드");
+		System.out.println("3.main thread CreateCustomThread객체.start()메소드호출");
+		cct.start();
 
+		while(true) {
+		System.out.println("4.main thread");
+		}
 	}
 
 }
