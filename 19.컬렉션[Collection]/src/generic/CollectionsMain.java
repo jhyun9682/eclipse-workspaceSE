@@ -45,6 +45,7 @@ public class CollectionsMain {
 		Collections.sort(stringList);
 		System.out.println(stringList);
 		
+		System.out.println(">>정렬전[Comparable]");
 		for (Account account : accountList) {
 			account.print();
 		}
@@ -71,7 +72,7 @@ public class CollectionsMain {
 		Collections.sort(accountList);
 		
 		
-		System.out.println(">>정렬후");
+		System.out.println(">>정렬후[Comparable]");
 		for (Account account : accountList) {
 			account.print();
 		}
