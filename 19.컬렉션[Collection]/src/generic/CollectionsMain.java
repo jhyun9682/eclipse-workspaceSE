@@ -81,10 +81,14 @@ public class CollectionsMain {
 		 *<<Collections.sort(List,Comparator)>>
 		 */
 		Collections.sort(accountList, new AccountBalanceDescComparator());
-		System.out.println(">>정렬후[Comparator]");
+		System.out.println(">>잔고내림차순 정렬후[Comparator]");
 		for (Account account : accountList) {
 			account.print();
-			
+		}
+		Collections.sort(accountList, new AccountOwnerAscComparator());
+		System.out.println(">>이름오름차순 정렬후[Comparator]");
+		for (Account account : accountList) {
+			account.print();
 		}
 		
 		
