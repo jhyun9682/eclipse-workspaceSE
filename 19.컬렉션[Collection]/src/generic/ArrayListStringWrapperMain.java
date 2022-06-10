@@ -58,6 +58,13 @@ public class ArrayListStringWrapperMain {
 		System.out.println("---------3.remove------");
 		scoreList.remove(5);
 		System.out.println(scoreList);
+		System.out.println("----전체출력-----");
+		for (int i = 0; i < scoreList.size(); i++) {
+			int tempScore=scoreList.get(i);
+			System.out.print(tempScore+" ");
+			
+		}
+		System.out.println();
 
 	}
 
