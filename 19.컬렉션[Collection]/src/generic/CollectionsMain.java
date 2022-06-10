@@ -38,12 +38,22 @@ public class CollectionsMain {
 		
 		System.out.println("-------------sort----------");
 		System.out.println(intList);
-		Collections.sort(intList);
-		System.out.println(intList);
+		Collections.sort(intList);//정렬
+		System.out.println("sort->"+intList);
+		Collections.reverse(intList);//역순
+		System.out.println("reverse->"+intList);
+		Collections.shuffle(intList);//섞임
+		System.out.println("shuffle->"+intList);
 		
 		System.out.println(stringList);
 		Collections.sort(stringList);
-		System.out.println(stringList);
+		System.out.println("sort->"+stringList);
+		Collections.reverse(stringList);
+		System.out.println("reverse->"+stringList);
+		Collections.shuffle(stringList);
+		System.out.println("shuffle->"+stringList);
+		
+		
 		
 		System.out.println(">>정렬전[Comparable]");
 		for (Account account : accountList) {
