@@ -63,17 +63,32 @@ public class ArraysMain {
 		Arrays.sort(scoreArray);
 		for (int score : scoreArray) {
 			System.out.print(score+" ");
-			
 		}
 		System.out.println();
+		
 		System.out.println("4.sort[String]");
 		Arrays.sort(nameArray);
 		for (String name : nameArray) {
 			System.out.print(name+" ");
 		}
 		System.out.println();
+		
 		System.out.println("4.sort[Integer]");
-		System.out.println("4.sort[Account]");
+		Integer[] wia= {89,45,new Integer(66),12,34,78,23,60};
+		Arrays.sort(wia);
+		for (Integer integer : wia) {
+			System.out.print(integer+" ");
+		}
+		System.out.println();
+		
+		System.out.println("4.sort[Account]-Comparable");
+		Arrays.sort(accounts);
+		for (Account account : accounts) {
+			account.print();
+		}
+		
+		System.out.println("4.sort[Account]-Comparator");
+		
 
 	}
 
