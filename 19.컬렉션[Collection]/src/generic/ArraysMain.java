@@ -88,7 +88,10 @@ public class ArraysMain {
 		}
 		
 		System.out.println("4.sort[Account]-Comparator");
-		
+		Arrays.sort(accounts,new AccountOwnerAscComparator());
+		for (Account account : accounts) {
+			account.print();
+		}
 
 	}
 
