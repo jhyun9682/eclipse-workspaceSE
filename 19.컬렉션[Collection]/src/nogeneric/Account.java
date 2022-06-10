@@ -1,7 +1,7 @@
 package nogeneric;
 
 
-public class Account extends Object {
+public class Account extends Object implements Comparable<Account>{
 	/*
 	 * 1.속성[멤버필드]
 	 */
@@ -96,6 +96,22 @@ public class Account extends Object {
 
 	public void setIyul(double iyul) {
 		this.iyul = iyul;
+	}
+	@Override
+	public int compareTo(Account nextAccount) {
+		/*
+		System.out.println("---CompareTo-----");
+		this.print();
+		nextAccount.print();
+		System.out.println("-----------------");
+		*/
+		if(this.balance>nextAccount.getBalance()) {
+			return 1;
+		}else {
+			return -1;
+			
+		}
+		
 	}
 	
 }

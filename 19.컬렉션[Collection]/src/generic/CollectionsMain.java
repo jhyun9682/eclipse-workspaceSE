@@ -3,6 +3,8 @@ package generic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import nogeneric.Account;
+
 public class CollectionsMain {
 
 	public static void main(String[] args) {
@@ -27,10 +29,52 @@ public class CollectionsMain {
 		stringList.add("이효리");
 		stringList.add("유재식");
 		
-		Collections.sort(intList);
-		Collections.sort(stringList);
+		ArrayList<Account> accountList=new ArrayList<Account>();
+		accountList.add(new Account(4523,"BING",33000,0.5));
+		accountList.add(new Account(2367,"KING",23000,0.1));
+		accountList.add(new Account(8909,"KING",89000,0.2));
+		accountList.add(new Account(1234,"YONG",99000,0.7));
+		accountList.add(new Account(2789,"SANG",12000,0.3));
+		
+		System.out.println("-------------sort----------");
 		System.out.println(intList);
+		Collections.sort(intList);
+		System.out.println(intList);
+		
 		System.out.println(stringList);
+		Collections.sort(stringList);
+		System.out.println(stringList);
+		
+		for (Account account : accountList) {
+			account.print();
+		}
+		/*
+		 << Collections.sort(accountList) >>
+		    - List안에있는 element(Account) 는 
+		      반드시 Comparable interface를 구현해야한다.
+		    - Collections.sort(accountList)메쏘드 정렬메카니즘
+		        
+			    A. 첫번째Account객체와 두번째Account객체를 비교한다. 
+			     	Account firstAccount=accountList.get(0);
+			     	Account secondAccount=accountList.get(1);
+			        int result=firstAccount.compareTo(secondAccount);
+			    B. 비교의 결과값 정수가 양수이면 첫번째와 두번째를 교환   한다. 
+			       비교의 결과값 정수가 음수이면 첫번째와 두번째를 교환 안한다. 
+			   
+			    A. 두번째Account객체와 세번째Account객체를 비교한다. 
+			     	Account secondAccount=accountList.get(1);
+			    	Account thirdAccount=accountList.get(2);
+			       int result=secondAccount.compareTo(thirdAccount);
+			    B. 비교의 결과값 정수가 양수이면 두번째와 세번째를 교환   한다. 
+			       비교의 결과값 정수가 음수이면 두번째와 세번째를 교환 안한다. 
+		 */
+		Collections.sort(accountList);
+		
+		
+		System.out.println(">>정렬후");
+		for (Account account : accountList) {
+			account.print();
+		}
 
 	}
 
