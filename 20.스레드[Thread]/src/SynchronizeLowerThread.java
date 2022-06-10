@@ -1,8 +1,16 @@
 
 public class SynchronizeLowerThread extends Thread{
+	private Object monitor;//모니터 객체
+	public SynchronizeLowerThread(Object monitor) {
+		this.monitor=monitor;
+	}
+	
 	@Override
 	public void run() {
 		while(true) {
+			//("-----반드시 1set로 실행해야하는 code-----");
+			synchronized (monitor) {
+				
 			System.out.print("a");
 			System.out.print("b");
 			System.out.print("c");
@@ -29,6 +37,8 @@ public class SynchronizeLowerThread extends Thread{
 			System.out.print("x");
 			System.out.print("y");
 			System.out.print("z");
+			}
+			/**********************/
 		}
 	}
 
