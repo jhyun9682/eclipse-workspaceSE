@@ -76,6 +76,18 @@ public class CollectionsMain {
 		for (Account account : accountList) {
 			account.print();
 		}
+		/*
+		 *Comparator interface
+		 *<<Collections.sort(List,Comparator)>>
+		 */
+		Collections.sort(accountList, new AccountBalanceDescComparator());
+		System.out.println(">>정렬후[Comparator]");
+		for (Account account : accountList) {
+			account.print();
+			
+		}
+		
+		
 
 	}
 

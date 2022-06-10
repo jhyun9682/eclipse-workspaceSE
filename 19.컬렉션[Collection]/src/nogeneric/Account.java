@@ -119,22 +119,22 @@ public class Account extends Object implements Comparable<Account>{
 		 *  - 그래서 현재Account객체의 잔고가 다음Account객체의 잔고보다 작다면 양수1 을 반환해준다.
 		 *  - 양수1을 반환받은 Collection.sort()메쏘드는 현재Account객체와 다음Account객체의 주소교환작업을할것이다. 
 		 */
-		/*잔고로 오름차순
+		/*잔고로 오름차순*/
 		if(this.balance>nextAccount.getBalance()) {
 			return 1;
 		}else {
 			return -1;
 			
 		}
-		*/
-		/*이름으로 오름차순*/
+		/**/
+		/*이름으로 오름차순
 		if(this.owner.compareTo(nextAccount.getOwner())>0) {
 			return 1;
 		}else {
 			return -1;
 			
 		}
-		
+		*/
 	}
 	
 }
