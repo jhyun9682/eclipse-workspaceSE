@@ -1,6 +1,6 @@
 package basic;
 
-public class AddressTableDeleteByPrimarykeyMain {
+public class AddressTableUpdateByPrimaryKeyMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
