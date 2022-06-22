@@ -16,7 +16,7 @@ commit;
 
 --delete (pk delete)
 delete address where no=1;
-commit;
+rollback;
 
 --select (pk select)
 select no,id,name,phone,address from address where no = 3;
