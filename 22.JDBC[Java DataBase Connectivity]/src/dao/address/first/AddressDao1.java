@@ -9,7 +9,7 @@ import java.sql.Statement;
  * Dao(Data[DataBase] Access Object) 객체(클래스)
  * - addrㄷss 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
  */
-public class AddressDao {
+public class AddressDao1 {
 	public void insert() throws Exception{
 		
 		String driverClass="oracle.jdbc.OracleDriver";
@@ -27,7 +27,7 @@ public class AddressDao {
 		stmt.close();
 		con.close();
 	}
-	public void update() throws Exception{
+	public void updateByNo() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriverup";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
@@ -44,7 +44,7 @@ public class AddressDao {
 		stmt.close();
 		con.close();
 	}
-	public void delete() throws Exception{
+	public void deleteByNo() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
@@ -61,7 +61,7 @@ public class AddressDao {
 		stmt.close();
 		con.close();
 	}
-	public void selectByno() throws Exception{
+	public void selectByNo() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
