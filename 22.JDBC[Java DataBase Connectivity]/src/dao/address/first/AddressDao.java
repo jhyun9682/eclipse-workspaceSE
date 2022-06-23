@@ -5,8 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class AddressTableCreateReadUpdateDeleteClass {
-	public void a() throws Exception{
+/*
+ * Dao(Data[DataBase] Access Object) 객체(클래스)
+ * - addrㄷss 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
+ */
+public class AddressDao {
+	public void insert() throws Exception{
 		
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -23,8 +27,8 @@ public class AddressTableCreateReadUpdateDeleteClass {
 		stmt.close();
 		con.close();
 	}
-	public void b() throws Exception{
-		String driverClass="oracle.jdbc.OracleDriver";
+	public void update() throws Exception{
+		String driverClass="oracle.jdbc.OracleDriverup";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
 		String password="jdeveloper00";
@@ -40,7 +44,7 @@ public class AddressTableCreateReadUpdateDeleteClass {
 		stmt.close();
 		con.close();
 	}
-	public void c() throws Exception{
+	public void delete() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
@@ -57,7 +61,7 @@ public class AddressTableCreateReadUpdateDeleteClass {
 		stmt.close();
 		con.close();
 	}
-	public void d() throws Exception{
+	public void selectByno() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
@@ -94,7 +98,7 @@ public class AddressTableCreateReadUpdateDeleteClass {
 		stmt.close();
 		con.close();
 	}
-	public void e() throws Exception{
+	public void selectAll() throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
