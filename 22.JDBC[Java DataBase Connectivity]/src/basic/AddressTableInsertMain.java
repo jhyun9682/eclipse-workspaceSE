@@ -7,6 +7,8 @@ import java.sql.Statement;
 public class AddressTableInsertMain {
 
 	public static void main(String[] args) throws Exception{
+		
+		
 		/*
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";

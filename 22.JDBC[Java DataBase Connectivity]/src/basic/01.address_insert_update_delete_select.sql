@@ -8,6 +8,9 @@ insert into address values(address_no_seq.nextval,'xyzzx','이경호','123-4568'
 insert into address values(address_no_seq.nextval,'yyyyy','주경호','123-4568','경기도 안산시');
 insert into address values(address_no_seq.nextval,'super','양경호','123-4568','경기도 인천시');
 insert into address values(address_no_seq.nextval,'strong','인경호','123-4568','경기도 시흥시');
+
+
+insert into address values(address_no_seq.nextval,'guard'||address_no_seq.nextval ,'김경호','123-4568','경기도 성남시');
 commit;
 
 --update(pk update)
