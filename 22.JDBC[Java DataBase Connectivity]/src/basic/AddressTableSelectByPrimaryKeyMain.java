@@ -20,7 +20,7 @@ public class AddressTableSelectByPrimaryKeyMain {
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery(selectSQL);
 		//
-		boolean isExist = rs.next();
+		
 		if(rs.next()) {
 			/*
 			 * DB타입 		 | 자바타입
