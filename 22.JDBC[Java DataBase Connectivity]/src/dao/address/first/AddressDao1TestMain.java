@@ -19,7 +19,7 @@ public class AddressDao1TestMain {
 		
 		System.out.println("5.delete");
 		addressDao.deleteByNo();
-		
+	
 		
 	
 

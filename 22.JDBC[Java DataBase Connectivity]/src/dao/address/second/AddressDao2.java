@@ -7,17 +7,17 @@ import java.sql.Statement;
 
 /*
  * Dao(Data[DataBase] Access Object) 객체(클래스)
- * - addrㄷss 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
+ * - address 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
  */
 public class AddressDao2 {
-	public void insert() throws Exception{
+	public void insert(String id, String name,String phone,String address) throws Exception{
 		
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
 		String password="jdeveloper00";
 		
-		String insertSQL="insert into address values(address_no_seq.nextval,'orange'||address_no_seq.nextval,'오렌지','890-9090','서울시민')";
+		String insertSQL="insert into address values(address_no_seq.nextval,'"+id+"','"+name+"','"+phone+"','"+address+"')";
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
@@ -27,13 +27,13 @@ public class AddressDao2 {
 		stmt.close();
 		con.close();
 	}
-	public void updateByNo() throws Exception{
-		String driverClass="oracle.jdbc.OracleDriverup";
+	public void updateByNo(int no,String name,String phone,String address) throws Exception{
+		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
 		String password="jdeveloper00";
 		
-		String updateSQL="update address set name='제임스',phone='333-3333',address='서울시 강남구' where no = 1";
+		String updateSQL="update address set name='"+name+"',phone='"+phone+"',address='"+address+"'";
 		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
@@ -44,13 +44,13 @@ public class AddressDao2 {
 		stmt.close();
 		con.close();
 	}
-	public void deleteByNo() throws Exception{
+	public void deleteByNo(int no) throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
 		String password="jdeveloper00";
 		
-		String deleteSQL="delete address where no=19";
+		String deleteSQL="delete address where no="+no;
 		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
@@ -61,13 +61,13 @@ public class AddressDao2 {
 		stmt.close();
 		con.close();
 	}
-	public void selectByNo() throws Exception{
+	public void selectByNo(int n) throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="jdeveloper00";
 		String password="jdeveloper00";
 		//
-		String selectSQL=" select no,id,name,phone,address from address where no = 1";
+		String selectSQL=" select no,id,name,phone,address from address where no = "+n;
 		//
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
@@ -76,14 +76,7 @@ public class AddressDao2 {
 		//
 		
 		if(rs.next()) {
-			/*
-			 * DB타입 		 | 자바타입
-			 * number 		 | int,double
-			 * varchar2,char | String
-			 * Date 		 | Date
-			 * 
-			 *  XXX data=rs.getXXX("컬럼이름");
-			 */
+			
 			int no=rs.getInt("no");
 			String id=rs.getString("id");
 			String name=rs.getString("name");

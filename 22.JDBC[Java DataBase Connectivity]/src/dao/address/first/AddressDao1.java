@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 /*
  * Dao(Data[DataBase] Access Object) 객체(클래스)
- * - addrㄷss 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
+ * - address 테이블에 CRUD(Create,Read,Update,Delete)작업을 하는 단위 메소드를 가지고 있는 객체(클래스)
  */
 public class AddressDao1 {
 	public void insert() throws Exception{
