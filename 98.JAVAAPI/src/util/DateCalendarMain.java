@@ -92,8 +92,15 @@ public class DateCalendarMain {
 		System.out.println(sqlDate1);
 		System.out.println(sqlDate2);
 		
+		/*
 		Date sqlDate1ToUtilDate1=sqlDate1;
 		Date sqlDate1ToUtilDate2=sqlDate2;
+		*/
+
+		Date sqlDate1ToUtilDate1=new Date(sqlDate1.getTime());
+		Date sqlDate1ToUtilDate2=new Date(sqlDate2.getTime());
+		System.out.println(sqlDate1ToUtilDate1);
+		System.out.println(sqlDate1ToUtilDate2);
 		
 		
 		
