@@ -20,4 +20,5 @@ where guest_no=1;
 --pk delete
 delete guest where guest_no=1;
 
+select*from guest where guest_no=2;
 select * from guest;

@@ -16,6 +16,6 @@ GUEST_HOMEPAGE          VARCHAR2(50)
 GUEST_TITLE             VARCHAR2(100)  
 GUEST_CONTENT           VARCHAR2(4000) 
 */
-public class Guset {
+public class Guest {
 
 }
