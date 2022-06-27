@@ -1,4 +1,4 @@
-package dao.address;
+package common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,8 +10,8 @@ public class DataSource {
 	//
 	private String driverClass="oracle.jdbc.OracleDriver";
 	private String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
-	private String user="jdeveloper27";
-	private String password="jdeveloper27";
+	private String user="jdeveloper00";
+	private String password="jdeveloper00";
 	//
 	/*
 	 * Connection객체를 생성해서 반환하는 메소드
