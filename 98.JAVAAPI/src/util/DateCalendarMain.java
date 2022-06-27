@@ -1,4 +1,4 @@
-package utill;
+package util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,9 +63,37 @@ public class DateCalendarMain {
 		Date date1=new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-10");
 		Date date2=new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-10");
 		Date date3=new SimpleDateFormat("yyyy-MM-dd").parse("2022-01-11");
+		System.out.println("epuals:"+date1.equals(date2));
+		System.out.println("epuals:"+date1.equals(date3));
+		System.out.println("compareTo:"+date1.compareTo(date2));
+		System.out.println("compareTo:"+date1.compareTo(date3));
+		System.out.println("compareTo:"+date1.compareTo(date1));
+		long gapMiLisec=date3.getTime()-date1.getTime();
+		System.out.println("gapMiLisec:"+gapMiLisec);
+		System.out.println("min:"+gapMiLisec/1000/60);
+		System.out.println("hour:"+gapMiLisec/1000/60/60);
+		System.out.println("day:"+gapMiLisec/1000/60/60/24);
 		
+		System.out.println("------java.util.Date->java.sql.Date----");
+		Date utilDate1=new Date();
+		Date utilDate2=new Date(System.currentTimeMillis());
+		System.out.println(utilDate1);
+		System.out.println(utilDate2);
 		
+		java.sql.Date utillDate1ToSqlDate1=new java.sql.Date(utilDate1.getTime());
+		java.sql.Date utillDate1ToSqlDate2=new java.sql.Date(utilDate2.getTime());
+		System.out.println(utillDate1ToSqlDate1);
+		System.out.println(utillDate1ToSqlDate2);
 		
+		System.out.println("------java.sql.Date->java.util.Date----");
+		java.sql.Date sqlDate1=new java.sql.Date(System.currentTimeMillis());
+		java.sql.Date sqlDate2=java.sql.Date.valueOf("2022-07-27");
+		
+		System.out.println(sqlDate1);
+		System.out.println(sqlDate2);
+		
+		Date sqlDate1ToUtilDate1=sqlDate1;
+		Date sqlDate1ToUtilDate2=sqlDate2;
 		
 		
 		
