@@ -7,7 +7,7 @@ public class GuestDaoTestMain {
 		
 		System.out.println("1.insertGuest");
 		System.out.println("2.deleteGuest");
-		System.out.println(guestDao.deleteGuest(11));
+		System.out.println(guestDao.deleteGuest(8));
 		
 		System.out.println("3.updateGuest");
 		System.out.println("4.selectByNo");
