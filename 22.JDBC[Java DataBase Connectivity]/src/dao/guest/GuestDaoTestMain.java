@@ -6,8 +6,14 @@ public class GuestDaoTestMain {
 		GuestDao guestDao=new GuestDao();
 		
 		System.out.println("1.insertGuest");
+		Guest insertGuest=new Guest();
+		guestDao.insertGuest(null);
+
 		System.out.println("2.deleteGuest");
-		System.out.println(guestDao.deleteGuest(8));
+		System.out.println(">>delete row count:"+guestDao.deleteGuest(6));
+		System.out.println(">>delete row count:"+guestDao.deleteGuest(2));
+		System.out.println(">>delete row count:"+guestDao.deleteGuest(7));
+		System.out.println(">>delete row count:"+guestDao.deleteGuest(5));
 		
 		System.out.println("3.updateGuest");
 		System.out.println("4.selectByNo");
