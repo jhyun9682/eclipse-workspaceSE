@@ -20,11 +20,25 @@ select * from product where p_no=1;
 --제품추가(X)
 
 /*****cart*****/
---로그인한 멤버(guard1)의 카트리스트(cart)
+--로그인한 멤버(guard1)의 카트아이템 리스트(cart)
 select * from cart where userid='guard1';
---로그인한 멤버(guard1)의 카트리스트(cart+product)
+--로그인한 멤버(guard1)의 카트아이템 리스트(cart+product)
 select * from cart c join product p on c.p_no=p.p_no where userid='guard1';
---로그인한 멤버(guard2)의 카트리스트(cart+product)
+--로그인한 멤버(guard2)의 카트아이템 리스트(cart+product)
 select * from cart c join product p on c.p_no=p.p_no where userid='guard2';
---
+
+--로그인한 멤버(guard1)의 카트아이템 한개삭제(pk)
+delete from cart where cart_no=1;
+
+--로그인한 멤버(guard1)의 카트아이템 제품1개의 수량변경(pk)
+update cart set cart_qty= 8 where cart_no=2;
+
+--로그인한 멤버(guard1)의 카트에 제품추가시에 수정
+
+
+
+
+
+
+
 
