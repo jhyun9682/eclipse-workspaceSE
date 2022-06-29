@@ -18,3 +18,5 @@ select*from product where p_no=1;
 --제품수정(X)
 --제품삭제(X)
 --제품추가(X)
+
+/*****cart*****/
