@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Panel;
+import javax.swing.JButton;
 
 public class ChattingFrame extends JFrame {
 
@@ -46,19 +48,29 @@ public class ChattingFrame extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("채팅창");
-		lblNewLabel.setBackground(Color.DARK_GRAY);
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(0, 255, 0));
+		
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel, BorderLayout.NORTH);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setText("경호 안녕 내일 만나?");
+		textArea.setText("경호:안녕 내일 만나!!!\r\n희철:나 일있어~~~");
 		textArea.setEditable(false);
 		contentPane.add(textArea, BorderLayout.CENTER);
 		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.ORANGE);
+		contentPane.add(panel, BorderLayout.SOUTH);
+		
 		textField = new JTextField();
-		contentPane.add(textField, BorderLayout.SOUTH);
-		textField.setColumns(10);
+		panel.add(textField);
+		textField.setColumns(23);
+		
+		JButton btnNewButton = new JButton("전송");
+		panel.add(btnNewButton);
+		
 	}
 
 }
