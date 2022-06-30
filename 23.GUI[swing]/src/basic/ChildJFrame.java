@@ -12,7 +12,7 @@ public class ChildJFrame extends JFrame {
 	 * 컴포넌트를 멤버필드로 선언
 	 */
 	private JButton okBtn;
-	private JButton cancleBtn;
+	private JButton cancelBtn;
 	public ChildJFrame() {
 		
 		this.setTitle("나의 첫번째프레임");
@@ -24,17 +24,17 @@ public class ChildJFrame extends JFrame {
 		 * 컴포넌트객체생성
 		 */
 		okBtn=new JButton("확인");
-		cancleBtn=new JButton("취소");
+		cancelBtn=new JButton("취소");
 		/*
 		 * 컨테이너에 컴포넌트를 추가
 		 */
 		
 		contentPane.setLayout(null);
 		okBtn.setBounds(40,40,80,40);
-		cancleBtn.setBounds(130,40,80,40);
+		cancelBtn.setBounds(130,40,80,40);
 		
 		contentPane.add(okBtn);
-		contentPane.add(cancleBtn);
+		contentPane.add(cancelBtn);
 		
 		
 		

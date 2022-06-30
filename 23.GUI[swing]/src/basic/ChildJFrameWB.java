@@ -15,7 +15,7 @@ public class ChildJFrameWB extends JFrame {
 
 	private JPanel contentPane;
 	private JButton okBtn;
-	private JButton cancleBtn;
+	private JButton cancelBtn;
 
 	/**
 	 * Launch the application.
@@ -54,12 +54,12 @@ public class ChildJFrameWB extends JFrame {
 		okBtn.setBounds(29, 28, 97, 23);
 		contentPane.add(okBtn);
 		
-		cancleBtn = new JButton("취소");
-		cancleBtn.addActionListener(new ActionListener() {
+		cancelBtn = new JButton("취소");
+		cancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		cancleBtn.setBounds(154, 28, 97, 23);
-		contentPane.add(cancleBtn);
+		cancelBtn.setBounds(154, 28, 97, 23);
+		contentPane.add(cancelBtn);
 	}
 }
