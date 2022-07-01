@@ -2,6 +2,8 @@ package event;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.nio.ByteOrder;
 
 import javax.swing.JButton;
@@ -30,7 +32,7 @@ public class ActionEventJFrame extends JFrame{
 		
 		/*****이벤트 소스에 이벤트 핸들러객체 등록*****/
 		northBtn.addActionListener(new NorthButtonActionEventHandler());
-		
+		southBtn.addActionListener(new SouthBottonActionEventHandler());
 		
 		
 		
@@ -42,7 +44,26 @@ public class ActionEventJFrame extends JFrame{
 		this.setSize(300, 400);
 	
 	}
-
+/******member inner class*******/
+	public class SouthBottonActionEventHandler implements ActionListener{
+		int count;
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("south button click...");
+			/*
+			 * 프레임의 타이틀변경
+			 * contentPane의 배경색변경
+			 * ?
+			 */
+			setTitle("south button click["+ ++count +"]");
+			int r=(int)(Math.random()*256);
+			int g=(int)(Math.random()*256);
+			int b=(int)(Math.random()*256);
+			contentPane.setBackground(new Color(r,g,b));
+			
+			
+		}
+	}
 	
 	public static void main(String[] args) {
 		ActionEventJFrame actionEventJFrame = new ActionEventJFrame();

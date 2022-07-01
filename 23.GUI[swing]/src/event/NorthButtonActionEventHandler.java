@@ -11,7 +11,9 @@ public class NorthButtonActionEventHandler implements ActionListener{
 		/*
 		 * 프레임의 타이틀변경
 		 * contentPane의 배경색변경
+		 * ?
 		 */
+		
 
 		
 	}
