@@ -1,4 +1,3 @@
-
 package com.itwill.shop.dto;
 /*
 VO(Value Object),DTO(Data Transfer Object)

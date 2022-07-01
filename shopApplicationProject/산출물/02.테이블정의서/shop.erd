@@ -23,8 +23,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>49</x>
-        <y>101</y>
+        <x>127</x>
+        <y>53</y>
       </constraint>
       <sourceConnections/>
       <targetConnections>
@@ -51,8 +51,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>177</x>
-              <y>267</y>
+              <x>245</x>
+              <y>266</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -80,8 +80,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>316</x>
-                    <y>61</y>
+                    <x>409</x>
+                    <y>62</y>
                   </constraint>
                   <sourceConnections/>
                   <targetConnections>
@@ -91,7 +91,7 @@
                   <linkedPath></linkedPath>
                   <tableName>product</tableName>
                   <logicalName>product</logicalName>
-                  <description>제품</description>
+                  <description></description>
                   <columns>
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>p_no</columnName>
