@@ -49,6 +49,7 @@ public class ChildJFrameWB extends JFrame {
 		okBtn = new JButton("확인");
 		okBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("확인버튼을눌렀네요!");
 			}
 		});
 		okBtn.setBounds(29, 28, 97, 23);
