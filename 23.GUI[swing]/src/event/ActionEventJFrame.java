@@ -31,10 +31,41 @@ public class ActionEventJFrame extends JFrame{
 		
 		
 		/*****이벤트 소스에 이벤트 핸들러객체 등록*****/
+		/**1.외부클래스**/
 		northBtn.addActionListener(new NorthButtonActionEventHandler());
+		/**2.멤버내부클래스**/
 		southBtn.addActionListener(new SouthBottonActionEventHandler());
-		//westBtn.addActionListener(null);
+		/**3.이름없는 local클래스**/
+		ActionListener westBtnHandler=new ActionListener() {
+			int count;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("west button click!!");
+				/*outer 멤버 접근*/
+				setTitle("west button click["+ ++count +"]");
+				int r=(int)(Math.random()*256);
+				int g=(int)(Math.random()*256);
+				int b=(int)(Math.random()*256);
+				contentPane.setBackground(new Color(r,g,b));
+			}
+		};
 		
+		westBtn.addActionListener(westBtnHandler);
+		
+		eastBtn.addActionListener(new ActionListener() {
+			int count;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("east button click!!");
+				/*outer 멤버 접근*/
+				setTitle("east button click["+ ++count +"]");
+				int r=(int)(Math.random()*256);
+				int g=(int)(Math.random()*256);
+				int b=(int)(Math.random()*256);
+				contentPane.setBackground(new Color(r,g,b));
+			}
+			
+		});
 		
 		
 		contentPane.add(northBtn,BorderLayout.NORTH);
