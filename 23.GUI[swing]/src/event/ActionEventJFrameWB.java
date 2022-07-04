@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ActionEventJFrameWB extends JFrame {
 
@@ -35,6 +37,12 @@ public class ActionEventJFrameWB extends JFrame {
 	 * Create the frame.
 	 */
 	public ActionEventJFrameWB() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				System.out.println("초기화!!!");
+			}
+		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 363, 508);
 		contentPane = new JPanel();
