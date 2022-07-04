@@ -7,10 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.itwill.member.dto.Member;
 import com.itwill.member.service.MemberService;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -20,10 +22,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
+import javax.swing.JTextPane;
 
 public class MemberMainFrame extends JFrame {
 	/**1.MemberService 객체 선언**/
 	private MemberService memberService;
+	/****/
+
+	/**로그인한 회원**/
+	private Member loginMember=null;
+	/****/
+	
+	/****/
+	
 	/****/
 
 	private JPanel contentPane;
@@ -32,6 +43,12 @@ public class MemberMainFrame extends JFrame {
 	private JTextField idTF;
 	private JTextField nameTF;
 	private JTextField addressTF;
+	private JComboBox ageCB;
+	private JLabel messageLB;
+	private JCheckBox marriedCHK;
+	private JPasswordField loginpasswordTF;
+	private JTextField loginidTF;
+	private JLabel loginMessageLB;
 
 	/**
 	 * Launch the application.
@@ -111,12 +128,12 @@ public class MemberMainFrame extends JFrame {
 		joinPanel.add(addressTF);
 		addressTF.setColumns(10);
 		
-		JComboBox ageCB = new JComboBox();
+		ageCB = new JComboBox();
 		ageCB.setModel(new DefaultComboBoxModel(new String[] {"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"}));
 		ageCB.setBounds(107, 290, 116, 23);
 		joinPanel.add(ageCB);
 		
-		JCheckBox marriedCHK = new JCheckBox("");
+		marriedCHK = new JCheckBox("");
 		marriedCHK.setBounds(108, 344, 115, 23);
 		joinPanel.add(marriedCHK);
 		
@@ -132,10 +149,34 @@ public class MemberMainFrame extends JFrame {
 					String address=addressTF.getText();
 					
 					if(id.equals("")|| password.equals("")||name.equals("")||address.equals("")) {
+						messageLB.setText("* 내용을 입력하세요");
 						return;
 					}
+					String ageStr=(String)ageCB.getSelectedItem();
+					int age=Integer.parseInt(ageStr);
+					String marriedStr="";
+					if(marriedCHK.isSelected()) {
+						marriedStr="T";
+					}else {
+						marriedStr="F";
+						
+					}
+					Member newMember=new Member(id,password,name,address,age,marriedStr,null);
+					System.out.println("1.MemberMainFrame");
+					boolean isSuccess=
+							memberService.addMember(newMember);
+					if(isSuccess) {
+						//성공(로그인패널 보여줌)
+						memberTabbedPane.setSelectedIndex(1);
+					}else {
+						//실패(다이알로그 띄움)
+						JOptionPane.showMessageDialog(null, "아이디가 중복되었습니다.");
+						idTF.requestFocus();
+						idTF.setSelectionStart(0);
+						idTF.setSelectionEnd(id.length());
+
+					}
 					
-					memberService.addMember(null);
 				}catch(Exception e1) {
 				}
 				/****/
@@ -149,7 +190,7 @@ public class MemberMainFrame extends JFrame {
 		cancelBtn.setBounds(166, 399, 97, 23);
 		joinPanel.add(cancelBtn);
 		
-		JLabel messageLB = new JLabel("");
+		messageLB = new JLabel("");
 		messageLB.setForeground(Color.RED);
 		messageLB.setBounds(24, 66, 199, 15);
 		joinPanel.add(messageLB);
@@ -161,6 +202,62 @@ public class MemberMainFrame extends JFrame {
 		
 		JPanel loginPanel = new JPanel();
 		memberTabbedPane.addTab("로그인", null, loginPanel, null);
+		loginPanel.setLayout(null);
+		
+		JLabel lblNewLabel_7 = new JLabel("아이디");
+		lblNewLabel_7.setBounds(36, 79, 57, 15);
+		loginPanel.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("비밀번호");
+		lblNewLabel_8.setBounds(36, 134, 57, 15);
+		loginPanel.add(lblNewLabel_8);
+		
+		loginpasswordTF = new JPasswordField();
+		loginpasswordTF.setBounds(111, 131, 110, 18);
+		loginPanel.add(loginpasswordTF);
+		
+		loginidTF = new JTextField();
+		loginidTF.setBounds(111, 76, 110, 21);
+		loginPanel.add(loginidTF);
+		loginidTF.setColumns(10);
+		
+		JButton loginBtn = new JButton("로그인");
+		loginBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/**회원로그인**/
+				try {
+					String id=loginidTF.getText();
+					String password=loginpasswordTF.getText();
+					int result=memberService.login(id, password);
+					if(result==0) {
+						loginProcess(id);
+					}else if(result==1) {
+						//실패 아이디 존재안함
+						loginMessageLB.setText("아이디존재안함");
+						loginidTF.requestFocus();
+					}else if(result==2) {
+						loginMessageLB.setText("비밀번호 불일치");
+						//실패 비밀번호 불일치
+						loginpasswordTF.requestFocus();
+						
+					}
+					
+				}catch(Exception e1) {
+					
+				}
+				/****/
+			}
+		});
+		loginBtn.setBounds(36, 204, 97, 23);
+		loginPanel.add(loginBtn);
+		
+		JButton cancelBtn2 = new JButton("취소");
+		cancelBtn2.setBounds(169, 204, 97, 23);
+		loginPanel.add(cancelBtn2);
+		
+		loginMessageLB = new JLabel("");
+		loginMessageLB.setBounds(24, 168, 242, 15);
+		loginPanel.add(loginMessageLB);
 		
 		JPanel listPanel = new JPanel();
 		memberTabbedPane.addTab("회원리스트", null, listPanel, null);
@@ -169,5 +266,21 @@ public class MemberMainFrame extends JFrame {
 		memberService=new MemberService();
 		//productService=new ProductService();
 		/****/
+	}//생성자끝
+	/**로그인 성공시 호출할 메소드**/
+	public void loginProcess(String id) throws Exception{
+		Member loginSucessMember= memberService.findById(id);
+		loginMember=loginSucessMember;
+		
+		setTitle(loginMember.getM_name());
+
+		memberTabbedPane.setSelectedIndex(2);
+		memberTabbedPane.setEnabledAt(0, false);
+		memberTabbedPane.setEnabledAt(1, false);
+		
 	}
-}
+	/**로그아웃시 호출할 메소드**/
+	public void logoutProcess() {
+		
+	}
+}//클래스끝

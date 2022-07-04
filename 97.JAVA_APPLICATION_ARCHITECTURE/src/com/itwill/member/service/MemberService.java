@@ -23,12 +23,21 @@ public class MemberService {
 	 *   - 아이디가 중복된경우에는 메세지를 띄운다.
 	 */
 	public boolean addMember(Member newMember) throws Exception{
+		System.out.println("2.MemberService");
 		boolean isSuccess=false;
 		/*
 		 * 아이디존재여부체크
 		 *    - 존재하면 메세지
 		 *    - 존재안하면 가입
 		 */
+		Member findMember=memberDao.selectById(newMember.getM_id());
+		if(findMember==null) {
+			int rowCount=memberDao.insert(newMember);
+			isSuccess=true;
+		}else {
+			isSuccess=false;
+			
+		}
 		
 		return isSuccess;
 		
@@ -44,6 +53,20 @@ public class MemberService {
 		 */
 		int loginResult=-999;
 		Member findMember = memberDao.selectById(id);
+		if(findMember==null) {
+		//아이디 존재 안함
+			loginResult=1;
+		}else {
+		//아이디 존재
+			if(findMember.getM_password().equals(password)) {
+				//로그인성공
+				loginResult=0;
+			}else {
+				//비밀번호 불일치
+				loginResult=2;
+				
+			}
+		}
 		
 		return loginResult;
 	}
@@ -53,7 +76,7 @@ public class MemberService {
 	 회원아이디로검색
 	 */
 	public Member findById(String m_id) throws Exception{
-		return null;
+		return memberDao.selectById(m_id);
 	}
 	
 	/* 
