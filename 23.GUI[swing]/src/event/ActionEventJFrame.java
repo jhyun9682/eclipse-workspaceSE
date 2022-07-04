@@ -33,7 +33,7 @@ public class ActionEventJFrame extends JFrame{
 		/*****이벤트 소스에 이벤트 핸들러객체 등록*****/
 		northBtn.addActionListener(new NorthButtonActionEventHandler());
 		southBtn.addActionListener(new SouthBottonActionEventHandler());
-		
+		//westBtn.addActionListener(null);
 		
 		
 		
