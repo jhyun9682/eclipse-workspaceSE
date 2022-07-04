@@ -23,36 +23,20 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>341</x>
-        <y>180</y>
+        <x>72</x>
+        <y>114</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>ADDRESS</tableName>
-      <logicalName>ADDRESS</logicalName>
+      <tableName>member</tableName>
+      <logicalName>member</logicalName>
       <description></description>
       <columns>
         <net.java.amateras.db.visual.model.ColumnModel>
-          <columnName>NO</columnName>
-          <logicalName>NO</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType">
-            <name>NUMBER</name>
-            <logicalName>Numeric</logicalName>
-            <supportSize>true</supportSize>
-            <type>2</type>
-          </columnType>
-          <size>4</size>
-          <notNull>true</notNull>
-          <primaryKey>true</primaryKey>
-          <description></description>
-          <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
-        </net.java.amateras.db.visual.model.ColumnModel>
-        <net.java.amateras.db.visual.model.ColumnModel>
-          <columnName>ID</columnName>
-          <logicalName>ID</logicalName>
+          <columnName>m_id</columnName>
+          <logicalName>m_id</logicalName>
           <columnType class="net.java.amateras.db.dialect.ColumnType">
             <name>VARCHAR2</name>
             <logicalName>String</logicalName>
@@ -60,16 +44,27 @@
             <type>12</type>
           </columnType>
           <size>20</size>
-          <notNull>true</notNull>
+          <notNull>false</notNull>
+          <primaryKey>true</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>m_password</columnName>
+          <logicalName>m_password</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>20</size>
+          <notNull>false</notNull>
           <primaryKey>false</primaryKey>
           <description></description>
           <autoIncrement>false</autoIncrement>
           <defaultValue></defaultValue>
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
-          <columnName>NAME</columnName>
-          <logicalName>NAME</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
+          <columnName>m_name</columnName>
+          <logicalName>m_name</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
           <size>50</size>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
@@ -78,10 +73,10 @@
           <defaultValue></defaultValue>
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
-          <columnName>PHONE</columnName>
-          <logicalName>PHONE</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
-          <size>50</size>
+          <columnName>m_address</columnName>
+          <logicalName>m_address</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+          <size>100</size>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
           <description></description>
@@ -89,28 +84,55 @@
           <defaultValue></defaultValue>
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
-          <columnName>ADDRESS</columnName>
-          <logicalName>ADDRESS</logicalName>
-          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
-          <size>60</size>
+          <columnName>m_age</columnName>
+          <logicalName>m_age</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>NUMBER</name>
+            <logicalName>Numeric</logicalName>
+            <supportSize>true</supportSize>
+            <type>2</type>
+          </columnType>
+          <size>3</size>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
           <description></description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
+          <defaultValue>0</defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>m_married</columnName>
+          <logicalName>m_married</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>CHAR</name>
+            <logicalName>Character</logicalName>
+            <supportSize>true</supportSize>
+            <type>1</type>
+          </columnType>
+          <size>1</size>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description>T  or  F</description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue>&apos;F&apos;</defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>m_regdate</columnName>
+          <logicalName>m_regdate</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>DATE</name>
+            <logicalName>Date</logicalName>
+            <supportSize>false</supportSize>
+            <type>91</type>
+          </columnType>
+          <size>10</size>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue>sysdate</defaultValue>
         </net.java.amateras.db.visual.model.ColumnModel>
       </columns>
-      <indices>
-        <net.java.amateras.db.visual.model.IndexModel>
-          <indexName>SYS_C00234427</indexName>
-          <indexType class="net.java.amateras.db.dialect.IndexType">
-            <name>UNIQUE</name>
-          </indexType>
-          <columns>
-            <string>ID</string>
-          </columns>
-        </net.java.amateras.db.visual.model.IndexModel>
-      </indices>
+      <indices/>
       <backgroundColor>
         <red>255</red>
         <green>255</green>
@@ -122,11 +144,11 @@
   <dommains/>
   <dialectName>Oracle</dialectName>
   <logicalMode>false</logicalMode>
-  <jarFile>C:\2022-05-JAVA-DEVELOPER\03.JDBC\4.JDBC드라이버\ojdbc6.jar</jarFile>
-  <jdbcDriver>oracle.jdbc.OracleDriver</jdbcDriver>
-  <jdbcUrl>jdbc:oracle:thin:@182.237.126.19:1521:xe</jdbcUrl>
-  <jdbcUser>jdeveloper00</jdbcUser>
-  <jdbcPassword>jdeveloper00</jdbcPassword>
+  <jarFile></jarFile>
+  <jdbcDriver>sun.jdbc.odbc.JdbcOdbc</jdbcDriver>
+  <jdbcUrl></jdbcUrl>
+  <jdbcUser></jdbcUser>
+  <jdbcPassword></jdbcPassword>
   <jdbcSchema></jdbcSchema>
   <jdbcCatalog></jdbcCatalog>
   <includeView>false</includeView>
