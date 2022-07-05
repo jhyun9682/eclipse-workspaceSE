@@ -28,6 +28,8 @@ import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MemberMainFrame extends JFrame {
 	/**1.MemberService 객체 선언**/
@@ -283,6 +285,37 @@ public class MemberMainFrame extends JFrame {
 		listPanel.add(scrollPane);
 		
 		memberListTable = new JTable();
+		memberListTable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				/**********/
+				try {
+				/*
+				 * 1.테이블클릭시 선택된 멤버데이터를 TextField에 보여준다
+				 * 2.수정과 삭제버튼 활성화
+				 */
+				int selectRow= memberListTable.getSelectedRow();
+				String selectMemberId= (String)memberListTable.getValueAt(selectRow, 0);
+				System.out.println(selectMemberId);
+				Member findMember= memberService.findById(selectMemberId);
+				m_idTF.setText(findMember.getM_id());
+				m_nameTF.setText(findMember.getM_name());
+				m_passwordTF.setText(findMember.getM_password());
+				m_addressTF.setText(findMember.getM_address());
+				String ageStr=findMember.getM_age()+"";
+				m_ageCB.setSelectedItem(ageStr);
+				String selectMarried=findMember.getM_married();
+				if(selectMarried.equals("T")) {
+					m_marriedCHK.setSelected(true);
+				}else{
+				m_marriedCHK.setSelected(false);
+				}				
+				}catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				/**********/
+			}
+		});
 		memberListTable.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null},
