@@ -33,30 +33,41 @@ insert into cart(cart_no,userId,p_no,cart_qty)
 values
 (cart_cart_no_SEQ.nextval,'guard2',3,1);
 
+
 /**********************orders insert************************/
-insert into orders(o_no,o_desc,o_date,o_price,userid) values (orders_o_no_SEQ.nextval,'비글외1종',sysdate-2,1050000,'guard1');
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
-
-insert into orders(o_no,o_desc,o_date,o_price,userid) values (orders_o_no_SEQ.nextval,'퍼그외0종',sysdate-1,400000,'guard1');
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
-
-
-insert into orders(o_no,o_desc,o_date,o_price,userid) values (orders_o_no_SEQ.nextval,'페키니즈외1종',sysdate,1450000,'guard1');
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,4);
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,2);
-
-
-
-insert into orders(o_no,o_desc,o_date,o_price,userid) values (orders_o_no_SEQ.nextval,'달마시안외0종',sysdate-1,500000,'guard2');
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
-
-insert into orders(o_no,o_desc,o_date,o_price,userid) values (orders_o_no_SEQ.nextval,'비글외1종',sysdate,1000000,'guard2');
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,4);
+/*
+guard1님 이 
+    제품번호1번 1마리,
+    제품번호2번 2마리 제품을 주문
+*/
+--1.orders insert
+insert into orders(o_no,o_desc,o_date,o_price,userid) 
+    values(orders_o_no_SEQ.nextval,'비글외1종',sysdate,1500000,'guard1');
+--2.order_item insert
+--제품번호1번 1마리
+insert into order_item(oi_no,oi_qty,o_no,p_no) 
+    values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
+--제품번호2번 2마리    
+insert into order_item(oi_no,oi_qty,o_no,p_no) 
+    values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,2);
 
 
-commit;
-desc order_item;
+
+/*
+guard2님 이 
+    제품번호7번 3마리,
+    제품번호8번 4마리 제품을 주문
+*/
+--1.orders insert
+insert into orders(o_no,o_desc,o_date,o_price,userid) 
+    values(orders_o_no_SEQ.nextval,'닥스훈트외1종',sysdate,5600000,'guard2');
+--2.order_item insert
+--제품번호7번 3마리
+insert into order_item(oi_no,oi_qty,o_no,p_no) 
+    values(order_item_oi_no_SEQ.nextval,3,orders_o_no_SEQ.currval,7);
+--제품번호8번 4마리    
+insert into order_item(oi_no,oi_qty,o_no,p_no) 
+    values(order_item_oi_no_SEQ.nextval,4,orders_o_no_SEQ.currval,8);
+
 
 

@@ -98,7 +98,7 @@ public class MemberMainFrame extends JFrame {
 	public MemberMainFrame() {
 		setTitle("회원관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 406, 585);
+		setBounds(100, 100, 406, 610);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);

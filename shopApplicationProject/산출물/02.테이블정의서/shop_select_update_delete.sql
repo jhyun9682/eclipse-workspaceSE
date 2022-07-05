@@ -51,11 +51,11 @@ select * from order_item where o_no = 1;
 
 --4. 주문한개의 주문상세,제품정보 여러개(주문상세,제품)
 select * from orders o join order_item oi on o.o_no=oi.o_no  join  product p on oi.p_no=p.p_no 
-where o.userid='guard1' and o.o_no = 1;
+where o.userid='guard1'and o.o_no=1;
 
 --5. 주문한개삭제(주문1개삭제,주문상세삭제)
 --on delete cascade
-delete from order_item where o_no=1;
+--delete from order_item where o_no=1;
 delete from orders where o_no=1;
 --rollback;
 --6. 멤버한사람의 주문내역전체삭제
