@@ -84,7 +84,7 @@ public class MemberService {
 	*/
 	public List<Member> findAll() throws Exception{
 		
-		return null;
+		return memberDao.selectAll();
 	}
 	
 	/*
