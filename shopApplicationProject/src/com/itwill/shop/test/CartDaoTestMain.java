@@ -13,7 +13,10 @@ public class CartDaoTestMain {
 	public static void main(String[] args) throws Exception {
 		CartDao cartDao=new CartDao();
 		System.out.println("1.add(insert)");
-		
+		CartItem addCart=new CartItem(0,
+								new User("guard1", null, null, null),
+								new Product(8, null, 0, null, null, 0),
+								1);
 		int rowCount=-999;
 		/*
 		rowCount = cartDao.add(addCart);

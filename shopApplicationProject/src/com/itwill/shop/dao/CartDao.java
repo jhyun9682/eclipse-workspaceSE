@@ -47,6 +47,29 @@ public class CartDao {
 	/*
 	 * cart insert
 	 */
+	public int add(CartItem cartItem) throws Exception {
+		String insertQuery="insert into cart(cart_no,userId,p_no,cart_qty) values (cart_cart_no_SEQ.nextval,?,?,?)";
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int insertRowCount=0;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(insertQuery);
+			pstmt.setString(1, cartItem.getUser().getUserId());
+			pstmt.setInt(2, cartItem.getProduct().getP_no());
+			pstmt.setInt(3, cartItem.getCart_qty());
+			insertRowCount = pstmt.executeUpdate();
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+		}
+		return insertRowCount;
+		
+	}
+	/*
+	 * cart insert
+	 */
 	public int add(String sUserId,int p_no,int cart_qty) throws Exception {
 		String insertQuery="insert into cart(cart_no,userId,p_no,cart_qty) values (cart_cart_no_SEQ.nextval,?,?,?)";
 		Connection con=null;
@@ -123,6 +146,26 @@ public class CartDao {
 				        + "join product p on p.p_no=c.p_no "
 				        + "where u.userid=?";
 		
+		con=dataSource.getConnection();
+		pstmt=con.prepareStatement(selectQuery);
+		pstmt.setString(1,sUserId);
+		rs=pstmt.executeQuery();
+		//int p_no, String p_name, int p_price, String p_image, String p_desc, int p_click_count
+		while(rs.next()) {
+			cartList.add(
+					new CartItem(rs.getInt("cart_no"),
+								 new User(rs.getString("userId"),"","",""),
+								 new Product(rs.getInt("p_no"),
+											rs.getString("p_name"),
+											rs.getInt("p_price"),
+											rs.getString("p_image"),
+											rs.getString("p_desc"),
+											rs.getInt("p_click_count")),
+								 rs.getInt("cart_qty")
+								 )
+					);
+		}
+		
 		return cartList;
 	}
 	
@@ -166,6 +209,7 @@ public class CartDao {
 		}
 		return deleteRowCount;
 	}
+	
 	public CartItem getCartItemByCartNo(int cart_no)throws Exception {
 		CartItem cartItem=null;
 		Connection con=null;
@@ -175,4 +219,5 @@ public class CartDao {
 		
 		return cartItem;
 	}
+	
 }
