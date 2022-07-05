@@ -30,6 +30,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
 
 public class MemberMainFrame extends JFrame {
 	/**1.MemberService 객체 선언**/
@@ -66,6 +72,9 @@ public class MemberMainFrame extends JFrame {
 	private JComboBox m_ageCB;
 	private JCheckBox m_marriedCHK;
 	private JButton memberUpdateBtn;
+	private JMenuItem loginMenuItem;
+	private JMenuItem joinMenuItem;
+	private JMenuItem logoutMenuItem;
 
 	/**
 	 * Launch the application.
@@ -90,6 +99,47 @@ public class MemberMainFrame extends JFrame {
 		setTitle("회원관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 406, 585);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu memberMenu = new JMenu("회원");
+		menuBar.add(memberMenu);
+		
+		loginMenuItem = new JMenuItem("로그인");
+		loginMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				memberTabbedPane.setSelectedIndex(1);
+			}
+		});
+		memberMenu.add(loginMenuItem);
+		
+		joinMenuItem = new JMenuItem("가입");
+		joinMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				memberTabbedPane.setSelectedIndex(0);
+			}
+		});
+		memberMenu.add(joinMenuItem);
+		
+		logoutMenuItem = new JMenuItem("로그아웃");
+		logoutMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				logoutProcess();
+			}
+		});
+		memberMenu.add(logoutMenuItem);
+		
+		JSeparator separator = new JSeparator();
+		memberMenu.add(separator);
+		
+		JMenuItem exitMenuItem = new JMenuItem("종료");
+		exitMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		memberMenu.add(exitMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -277,6 +327,17 @@ public class MemberMainFrame extends JFrame {
 		loginPanel.add(loginMessageLB);
 		
 		JPanel listPanel = new JPanel();
+		listPanel.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				//테이블 보여질때 호출
+				try {
+				memberListDisplay();
+				}catch (Exception e1) {
+					// TODO: handle exception
+				}
+			}
+		});
 		memberTabbedPane.addTab("회원리스트", null, listPanel, null);
 		listPanel.setLayout(null);
 		
@@ -285,6 +346,7 @@ public class MemberMainFrame extends JFrame {
 		listPanel.add(scrollPane);
 		
 		memberListTable = new JTable();
+	
 		memberListTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -309,7 +371,12 @@ public class MemberMainFrame extends JFrame {
 					m_marriedCHK.setSelected(true);
 				}else{
 				m_marriedCHK.setSelected(false);
-				}				
+				}			
+				m_regdateTF.setText(findMember.getM_regdate().toLocaleString().substring(0,10));
+				memberUpdateBtn.setEnabled(true);
+				memberDeleteBtn.setEnabled(true);
+				
+				
 				}catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -423,6 +490,31 @@ public class MemberMainFrame extends JFrame {
 		listPanel.add(memberUpdateBtn);
 		
 		memberDeleteBtn = new JButton("삭제");
+		memberDeleteBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			/****회원삭제****/
+				try {
+				String m_id= m_idTF.getText();
+				memberService.deleteById(m_id);
+				memberListDisplay();
+				//회원상세보기내용초기화
+				m_idTF.setText("");
+				m_passwordTF.setText("");
+				m_nameTF.setText("");
+				m_addressTF.setText("");
+				m_ageCB.setSelectedIndex(-1);
+				m_marriedCHK.setSelected(false);
+				memberDeleteBtn.setEnabled(false);
+				memberUpdateBtn.setEnabled(false);
+				
+				
+			}catch (Exception e1) {
+				e1.printStackTrace();
+				JOptionPane.showMessageDialog(null, e1.getMessage());
+			}
+				/********/
+			}
+		});
 		memberDeleteBtn.setEnabled(false);
 		memberDeleteBtn.setBounds(248, 474, 97, 23);
 		listPanel.add(memberDeleteBtn);
@@ -430,7 +522,9 @@ public class MemberMainFrame extends JFrame {
 		/**2.MemberService 객체생성**/
 		memberService=new MemberService();
 		//productService=new ProductService();
-		/****/
+		
+		/**처음 프레임생성될때 UI초기화**/
+		logoutProcess();
 	}//생성자끝
 	/**회원리스트 보여주기 메소드 정의**/
 	public void memberListDisplay() throws Exception{
@@ -471,13 +565,21 @@ public class MemberMainFrame extends JFrame {
 		
 		setTitle(loginMember.getM_name());
 
-		memberTabbedPane.setSelectedIndex(2);
 		memberTabbedPane.setEnabledAt(0, false);
 		memberTabbedPane.setEnabledAt(1, false);
+		memberTabbedPane.setEnabledAt(2, true);
+		memberTabbedPane.setSelectedIndex(2);
 		
 	}
 	/**로그아웃시 호출할 메소드**/
 	public void logoutProcess() {
+		
+		this.loginMember=null;
+		setTitle("");
+		memberTabbedPane.setEnabledAt(0, true);
+		memberTabbedPane.setEnabledAt(1, true);
+		memberTabbedPane.setEnabledAt(2, false);
+		memberTabbedPane.setSelectedIndex(1);
 		
 	}
 }//클래스끝
