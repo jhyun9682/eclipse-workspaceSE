@@ -564,7 +564,11 @@ public class MemberMainFrame extends JFrame {
 		loginMember=loginSucessMember;
 		
 		setTitle(loginMember.getM_name());
-
+		
+		loginMenuItem.setEnabled(false);
+		joinMenuItem.setEnabled(false);
+		logoutMenuItem.setEnabled(true);
+		
 		memberTabbedPane.setEnabledAt(0, false);
 		memberTabbedPane.setEnabledAt(1, false);
 		memberTabbedPane.setEnabledAt(2, true);
@@ -576,6 +580,10 @@ public class MemberMainFrame extends JFrame {
 		
 		this.loginMember=null;
 		setTitle("");
+		loginMenuItem.setEnabled(true);
+		joinMenuItem.setEnabled(true);
+		logoutMenuItem.setEnabled(false);
+		
 		memberTabbedPane.setEnabledAt(0, true);
 		memberTabbedPane.setEnabledAt(1, true);
 		memberTabbedPane.setEnabledAt(2, false);
