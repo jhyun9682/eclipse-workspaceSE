@@ -30,8 +30,16 @@ public class DataOutputInputStreamMain {
 		DataInputStream dis=
 				new DataInputStream(
 						new FileInputStream("dataOut.dat"));
-		System.out.println("");
 		System.out.println("DataOutputStream.readXXX()<-- dataOut.dat");
+		
+		int readInt=dis.readInt();
+		System.out.println("int:"+readInt);
+		System.out.println("byte:"+dis.readByte());
+		System.out.println("boolean:"+dis.readBoolean());
+		System.out.println("double:"+dis.readDouble());
+		System.out.println("Char:"+dis.readChar());
+		System.out.println("String:"+dis.readUTF());
+		dis.close();
 		
 	
 
