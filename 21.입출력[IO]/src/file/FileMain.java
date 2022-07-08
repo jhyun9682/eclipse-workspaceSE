@@ -55,6 +55,63 @@ public class FileMain {
 		System.out.println(dir2.isFile());
 		System.out.println(dir3.isFile());
 		
+		System.out.println("-----6.디렉토리 안에 파일(디렉토리)목록(String[]-----)");
+		String[] fileNameList= dir1.list();
+		for(String filename:fileNameList) {
+			System.out.println(filename);
+	
+		}
+		System.out.println("-----7.디렉토리 안에 파일(디렉토리)목록(File[]-----)");
+		
+		File[] fileList= dir1.listFiles();
+		for(File file:fileList) {
+			if(file.isDirectory()) {
+				System.out.println("\tD:"+file.getName());
+				File[] subFileList=file.listFiles();
+				for(File subFile:subFileList) {
+					System.out.println("\t\t"+subFile.getName());
+				}
+			}else {
+				System.out.println("\tF:"+file.getName());
+				
+			}
+		}
+		System.out.println("-----8.root directory목록-----");
+		File[] rootDrivrFileList =File.listRoots();
+		for(File rootFile : rootDrivrFileList) {
+			System.out.println(rootFile.getPath());
+		}
+		System.out.println("-----9.c:/파일목록출력");
+		File cDrive= rootDrivrFileList[0];
+		File[] cDriveFileList=cDrive.listFiles();
+		for(File file:cDriveFileList) {
+			System.out.println(file.getName());
+		}
+		System.out.println("-----10.directory 생성-----");
+		File newDir1=new File("newDir1");
+		File newDir2=new File("newDir2");
+		File newDir3=new File("sample","subSample3");
+		File newDir4=new File("C:/2022-05-JAVA-DEVELOPER/newDir4");
+		
+		System.out.println("newDir1의 존재여부:"+newDir1.exists());
+		System.out.println("newDir2의 존재여부:"+newDir2.exists());
+		System.out.println("newDir3의 존재여부:"+newDir3.exists());
+		System.out.println("newDir4의 존재여부:"+newDir4.exists());
+		
+		
+		System.out.println("newDir1의 생성여부:"+newDir1.mkdir());
+		System.out.println("newDir2의 생성여부:"+newDir2.mkdir());
+		System.out.println("newDir3의 생성여부:"+newDir3.mkdir());
+		System.out.println("newDir4의 생성여부:"+newDir4.mkdir());
+		
+		
+		System.out.println("-----11.directory 이름변경-----");
+		newDir2.renameTo(new File("renameDir2"));
+		
+		System.out.println("-----12.directory 삭제-----");
+		System.out.println("newDir3의 삭제여부:"+newDir3.delete());
+		
+		System.out.println("-----13.파일생성,삭제,이름변경-----");
 				
 
 	}
