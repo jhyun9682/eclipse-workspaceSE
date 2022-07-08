@@ -4,7 +4,7 @@ import java.io.File;
 
 public class FileMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		/*
 		 * 현재경로[기준경로]
 		 * eclipse->C:\2022-05-JAVA-DEVELOPER\eclipse-workspaceSE\21.입출력[IO]
@@ -112,6 +112,15 @@ public class FileMain {
 		System.out.println("newDir3의 삭제여부:"+newDir3.delete());
 		
 		System.out.println("-----13.파일생성,삭제,이름변경-----");
+		File newFile1=new File("newDir1","newFile1.txt");
+		File newFile2=new File("newDir1","newFile2.txt");
+		File newFile3=new File("C:/2022-05-JAVA-DEVELOPER/newDir4/newFile3.txt");
+		
+		System.out.println("newFile1 생성여부:"+newFile1.createNewFile());
+		System.out.println("newFile2 생성여부:"+newFile2.createNewFile());
+		System.out.println("newFile2 생성여부:"+newFile3.createNewFile());
+		
+		System.out.println("newFile1 삭제여부:"+newFile1.delete());
 				
 
 	}
